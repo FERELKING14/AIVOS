@@ -11,6 +11,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.19.0
 
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.10+1
@@ -57,3 +60,6 @@ flutter:
           weight: 700
         - asset: assets/fonts/grandis_extended/GrandisExtended-Black.ttf
           weight: 900
+
+flutter_intl:
+  enabled: true
