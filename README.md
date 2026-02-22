@@ -13,12 +13,15 @@
 AIVO includes a comprehensive set of features and screens:
 
 ### Core Functionality
-- **Onboarding & Authentication** - Welcome screens, login, signup, and password recovery
+- **🔐 Supabase Authentication** - Sign up, login, logout, password recovery
+- **✨ SKIP Authentication** - Browse app without login
 - **Product Browsing** - Intuitive product search, filters, and discovery
 - **Shopping Cart** - Manage items with ease
 - **Checkout** - Streamlined payment and order process
 - **Order Tracking** - Track your orders in real-time
-- **User Profile** - Manage account, addresses, and preferences
+- **User Profile** - Manage account, addresses, and preferences with login/logout
+- **🌐 Multi-language** - English & French (i18n)
+- **🎨 Light/Dark Themes** - Full theme support
 - **Wallet & Payments** - Secure payment methods and balance management
 
 ### UI Components
@@ -89,35 +92,106 @@ lib/
 
 ## Technology Stack
 
-- **Flutter** - Cross-platform mobile framework
-- **Dart** - Programming language
+- **Flutter** - Cross-platform mobile framework (3.2.0+)
+- **Dart** - Programming language (3.0.0+)
+- **Supabase** - Backend, PostgreSQL, authentication
 - **Material Design** - UI design system
 - **Custom Animations** - Smooth transitions and effects
+- **SharedPreferences** - Local state persistence
+
+### Backend Integration
+- **supabase_flutter: ^2.5.0** - Official Flutter SDK
+- **flutter_dotenv: ^5.1.0** - Environment configuration
+- **shared_preferences: ^2.2.2** - App state tracking
 
 ## Getting Started
 
 ### Prerequisites
 - Flutter 3.2.0 or higher
 - Dart 3.0.0 or higher
+- Supabase account (https://supabase.com)
 - Android SDK 21+ or iOS 12+
 
 ### Installation
 
 1. Clone the repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/ferelking8/AIVOS.git
 cd AIVOS
 ```
 
-2. Install dependencies
+2. Setup Supabase credentials
+```bash
+cp .env.example .env
+# Edit .env with your Supabase credentials
+```
+
+3. Install dependencies
 ```bash
 flutter pub get
 ```
 
-3. Run the app
+4. Run the app
 ```bash
 flutter run
 ```
+
+## 🔐 Supabase Integration
+
+### Configuration
+
+Create a `.env` file (not committed):
+```env
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_PUBLISH_KEY=sb_publishable_xxxxx
+```
+
+### Authentication Flow
+
+```
+First Launch → OnBoarding (shown once) → EntryPoint (default)
+                                              ↓
+                                      Profile Tab
+                                      ├─ NOT Logged In: "Login" button
+                                      └─ Logged In: Show profile + "Logout" button
+```
+
+### Features
+- ✅ Sign up with email
+- ✅ Login with credentials
+- ✅ Logout functionality
+- ✅ Password recovery (email reset)
+- ✅ Session persistence
+- ✅ First launch tracking
+- ✅ SKIP authentication to browse
+
+### Services
+
+**SupabaseAuthService** (`lib/services/supabase_auth_service.dart`)
+- `login(email, password)` - Authenticate user
+- `signUp(email, password)` - Create account
+- `logout()` - Sign out user
+- `resetPassword(email)` - Send password reset email
+- `isLoggedIn` - Check auth status
+- `userEmail` - Get current user email
+
+**SupabaseService** (`lib/services/supabase_service.dart`)
+- `getPopularProducts()` - Products tagged as popular
+- `getFlashSaleProducts()` - Flash sale items
+- `getBestSellersProducts()` - Best sellers
+- `getKidsProducts()` - Kids collection
+- `getProductsByCategory(id)` - Filter by category
+- `searchProducts(query)` - Search products
+- `getCategories()` - All categories
+
+### Database
+
+Tables:
+- `products` - Products with tags, pricing, inventory
+- `categories` - Product categories
+- `orders` - Customer orders (future use)
+
+See `dev/md/SUPABASE_SETUP.md` for detailed documentation.
 
 ## Development
 
@@ -143,33 +217,64 @@ The app is highly customizable:
 
 ## Project Structure Details
 
-### /lib/components
-Reusable UI components used across screens:
-- Product cards and variations
-- Banner components
-- Loading skeletons
-- Modal dialogs
+## Project Structure Details
 
-### /lib/screens
-Organized by feature domain:
-- `home/` - Home page components
-- `product/` - Product detail screens
-- `auth/` - Authentication flow
-- `checkout/` - Cart and payment flow
-- `profile/` - User account screens
-- And more...
+### /lib
+```
+lib/
+├── services/              # 🔐 Business logic
+│   ├── supabase_auth_service.dart    # Authentication
+│   └── supabase_service.dart         # Data access
+├── models/               # Data models
+│   ├── product_model.dart
+│   └── category_model.dart
+├── screens/              # UI screens (organized by feature)
+│   ├── auth/             # Login, Signup, Password Recovery
+│   ├── home/
+│   ├── profile/          # 👤 Login/Logout
+│   ├── discover/
+│   ├── bookmark/
+│   ├── cart/
+│   └── ... (15+ more)
+├── components/           # Reusable widgets
+├── route/                # Navigation
+├── theme/                # Theming
+├── constants.dart
+├── entry_point.dart      # Bottom navigation (5 tabs)
+└── main.dart             # App entry point
+```
 
-### /lib/theme
-Application theming:
-- `app_theme.dart` - Theme configuration
-- Light and dark theme colors
-- Typography settings
+### /dev - Development Resources
 
-### /lib/route
-Navigation management:
-- `router.dart` - Route generation logic
-- `route_constants.dart` - Route path constants
-- `screen_export.dart` - Screen imports
+```
+dev/
+├── README.md             # Overview of dev resources
+├── sql/                  # SQL scripts for Supabase
+│   ├── show_structure.sql
+│   ├── fill_products_complete.sql
+│   ├── seed_data.sql
+│   └── README.md
+├── scripts/              # Shell utilities
+│   ├── explore_db.sh
+│   ├── get_db_structure.sh
+│   ├── test_columns.sh
+│   └── README.md
+├── md/                   # Documentation
+│   ├── SUPABASE_SETUP.md
+│   └── README.md
+└── docs/                 # Additional docs folder
+    └── README.md
+```
+
+### /assets
+```
+assets/
+├── images/               # Image files
+├── icons/                # SVG icons
+├── fonts/                # Custom fonts
+├── screens/              # Screen mockups
+└── ... (images, flags, etc)
+```
 
 ## Performance Optimization
 
@@ -178,16 +283,25 @@ Navigation management:
 - Efficient list rendering with builders
 - Optimized page transitions
 
+## 📚 Development Resources
+
+All development tools, scripts, and documentation are in the `/dev` folder:
+
+- **[dev/README.md](dev/README.md)** - Overview of development resources
+- **[dev/md/SUPABASE_SETUP.md](dev/md/SUPABASE_SETUP.md)** - Complete Supabase integration guide
+- **[dev/sql/](dev/sql/)** - SQL scripts for database setup and seeding
+- **[dev/scripts/](dev/scripts/)** - Shell utilities for exploring and managing Supabase
+- **[dev/docs/](dev/docs/)** - Additional architecture and design documentation
+
 ## Future Enhancements
 
 Potential areas for expansion:
-- Backend API integration
-- User authentication with Firebase
+- Replace product mocks with real Supabase queries
 - Real-time notifications
 - Advanced search and filtering
 - Social features (reviews, ratings, recommendations)
-- Multi-language support
 - Payment gateway integration
+- Analytics and user tracking
 
 ## License
 
