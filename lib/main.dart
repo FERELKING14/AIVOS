@@ -12,17 +12,27 @@ import 'package:aivo/services/supabase_auth_service.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // Debug: Print environment configuration
+  print('=== AIVO App Startup ===');
+  print('Supabase URL: ${Environment.supabaseUrl.isEmpty ? '❌ NOT SET' : '✅ ${Environment.supabaseUrl}'}');
+  print('Supabase Key: ${Environment.supabasePublishableKey.isEmpty ? '❌ NOT SET' : '✅ ${Environment.supabasePublishableKey.substring(0, 20)}...'}');
+  print('Supabase Configured: ${Environment.isSupabaseConfigured ? '✅ YES' : '❌ NO'}');
+  print('========================\n');
+
   try {
     // Initialize Supabase only if credentials are provided via dart-define
     if (Environment.isSupabaseConfigured) {
+      print('🔄 Initializing Supabase...');
       await Supabase.initialize(
         url: Environment.supabaseUrl,
         anonKey: Environment.supabasePublishableKey,
       );
+      print('✅ Supabase initialized successfully');
 
       // Initialize Auth Service
       final authService = SupabaseAuthService();
       await authService.init();
+      print('✅ Auth service initialized');
     } else {
       print('⚠️ Supabase not configured. Build with --dart-define flags.');
       print('flutter build apk --dart-define=SUPABASE_URL=... --dart-define=SUPABASE_PUBLISHABLE_KEY=...');
