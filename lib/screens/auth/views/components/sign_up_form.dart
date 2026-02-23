@@ -7,11 +7,9 @@ class SignUpForm extends StatefulWidget {
   const SignUpForm({
     super.key,
     required this.formKey,
-    this.formWidgetKey,
   });
 
   final GlobalKey<FormState> formKey;
-  final GlobalKey? formWidgetKey;
 
   @override
   State<SignUpForm> createState() => _SignUpFormState();

@@ -7,11 +7,9 @@ class LogInForm extends StatefulWidget {
   const LogInForm({
     super.key,
     required this.formKey,
-    this.formWidgetKey,
   });
 
   final GlobalKey<FormState> formKey;
-  final GlobalKey? formWidgetKey;
 
   @override
   State<LogInForm> createState() => _LogInFormState();
