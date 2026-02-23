@@ -17,7 +17,7 @@ void main() async {
     if (Environment.isSupabaseConfigured) {
       await Supabase.initialize(
         url: Environment.supabaseUrl,
-        anonKey: Environment.supabaseAnonKey,
+        anonKey: Environment.supabasePublishableKey,
       );
 
       // Initialize Auth Service
@@ -25,7 +25,7 @@ void main() async {
       await authService.init();
     } else {
       print('⚠️ Supabase not configured. Build with --dart-define flags.');
-      print('flutter build apk --dart-define=SUPABASE_URL=... --dart-define=SUPABASE_ANON_KEY=...');
+      print('flutter build apk --dart-define=SUPABASE_URL=... --dart-define=SUPABASE_PUBLISHABLE_KEY=...');
     }
   } catch (e) {
     // Supabase optional - app can work without it

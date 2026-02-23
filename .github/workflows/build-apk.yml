@@ -36,13 +36,15 @@ jobs:
             --release \
             --split-per-abi \
             --dart-define=SUPABASE_URL=${{ secrets.SUPABASE_URL }} \
-            --dart-define=SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}
+            --dart-define=SUPABASE_PUBLISHABLE_KEY=${{ secrets.SUPABASE_PUBLISHABLE_KEY }}
         env:
           # GitHub Secrets:
           # - SUPABASE_URL: Your Supabase project URL
-          # - SUPABASE_ANON_KEY: Your Supabase anonymous/public key
+          # - SUPABASE_PUBLISHABLE_KEY: Your Supabase publishable/anon key (public key for client)
           #
           # Set these in: Settings → Secrets and variables → Actions
+          #
+          # ⚠️  NEVER use Service Role Key! Only use the public/publishable key for client apps.
 
       - name: Upload APK
         uses: actions/upload-artifact@v4

@@ -19,7 +19,7 @@ To enable Supabase features locally:
 ```bash
 flutter run \
   --dart-define=SUPABASE_URL=your_supabase_url \
-  --dart-define=SUPABASE_ANON_KEY=your_supabase_anon_key
+  --dart-define=SUPABASE_PUBLISHABLE_KEY=your_supabase_publishable_key
 ```
 
 Or for release APK:
@@ -30,7 +30,7 @@ flutter build apk \
   --release \
   --split-per-abi \
   --dart-define=SUPABASE_URL=your_supabase_url \
-  --dart-define=SUPABASE_ANON_KEY=your_supabase_anon_key
+  --dart-define=SUPABASE_PUBLISHABLE_KEY=your_supabase_publishable_key
 ```
 
 ### 2. Build Without Supabase
@@ -60,16 +60,16 @@ flutter build apk --target-platform android-arm64 --release --split-per-abi
 | Secret Name | Value |
 |---|---|
 | `SUPABASE_URL` | `https://your-project.supabase.co` |
-| `SUPABASE_ANON_KEY` | `your_publishable_anon_key` |
+| `SUPABASE_PUBLISHABLE_KEY` | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...` |
 
 ### Example Secret Values
 
 ```
 SUPABASE_URL=https://xyzdemo.supabase.co
-SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+SUPABASE_PUBLISHABLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 
-The CI/CD workflow (`.github/workflows/build-apk.yml`) automatically uses these secrets when building.
+**Note:** Use the **Publishable/Anonymous Key** (public key), NOT the Service Role Key. The publishable key is safe to use in client applications.
 
 ---
 
@@ -98,7 +98,7 @@ The CI/CD workflow (`.github/workflows/build-apk.yml`) automatically uses these 
 ```dart
 // In your code, access via String.fromEnvironment:
 const String supabaseUrl = String.fromEnvironment('SUPABASE_URL', defaultValue: '');
-const String supabaseKey = String.fromEnvironment('SUPABASE_ANON_KEY', defaultValue: '');
+const String supabasePublishableKey = String.fromEnvironment('SUPABASE_PUBLISHABLE_KEY', defaultValue: '');
 ```
 
 See `lib/config/environment.dart` for the complete configuration class.

@@ -4,13 +4,13 @@
 ///
 /// flutter build apk \
 ///   --dart-define=SUPABASE_URL=your_url \
-///   --dart-define=SUPABASE_ANON_KEY=your_key
+///   --dart-define=SUPABASE_PUBLISHABLE_KEY=your_key
 ///
 /// Or for development:
 ///
 /// flutter run \
 ///   --dart-define=SUPABASE_URL=your_url \
-///   --dart-define=SUPABASE_ANON_KEY=your_key
+///   --dart-define=SUPABASE_PUBLISHABLE_KEY=your_key
 
 class Environment {
   // Supabase credentials - injected at build time via --dart-define
@@ -19,14 +19,14 @@ class Environment {
     defaultValue: '', // Empty if not provided
   );
 
-  static const String supabaseAnonKey = String.fromEnvironment(
-    'SUPABASE_ANON_KEY',
+  static const String supabasePublishableKey = String.fromEnvironment(
+    'SUPABASE_PUBLISHABLE_KEY',
     defaultValue: '', // Empty if not provided
   );
 
   /// Check if Supabase is configured
   static bool get isSupabaseConfigured {
-    return supabaseUrl.isNotEmpty && supabaseAnonKey.isNotEmpty;
+    return supabaseUrl.isNotEmpty && supabasePublishableKey.isNotEmpty;
   }
 
   /// Get app version
