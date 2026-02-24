@@ -9,6 +9,7 @@ environment:
   sdk: ">=3.2.0 <4.0.0"
 
 dependencies:
+    permission_handler: ^11.3.0
   flutter:
     sdk: flutter
   flutter_localizations:

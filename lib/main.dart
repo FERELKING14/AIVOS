@@ -9,8 +9,20 @@ import 'package:aivo/theme/app_theme.dart';
 import 'package:aivo/utils/db_explorer.dart';
 import 'package:aivo/services/supabase_auth_service.dart';
 import 'package:aivo/services/logger_service.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'dart:io';
 
 void main() async {
+    // Demande la permission d'accès à tous les fichiers sur Android
+    if (Platform.isAndroid) {
+      final status = await Permission.manageExternalStorage.status;
+      if (!status.isGranted) {
+        final result = await Permission.manageExternalStorage.request();
+        if (!result.isGranted) {
+          print('Permission MANAGE_EXTERNAL_STORAGE refusée. Certaines fonctionnalités peuvent être limitées.');
+        }
+      }
+    }
   WidgetsFlutterBinding.ensureInitialized();
 
   // Initialize logger service
@@ -18,20 +30,20 @@ void main() async {
     final logger = LoggerService();
     await logger.init();
 
-    // Debug: Print environment configuration
+    // Debug: Print supabase configuration
     logger.i('=== AIVO App Startup ===');
-    logger.i('Supabase URL: ${Environment.supabaseUrl.isEmpty ? 'NOT SET' : Environment.supabaseUrl}');
-    logger.i('Supabase Key: ${Environment.supabasePublishableKey.isEmpty ? 'NOT SET' : Environment.supabasePublishableKey.substring(0, 20)}...');
-    logger.i('Supabase Configured: ${Environment.isSupabaseConfigured}');
+    logger.i('Supabase URL: $supabaseUrl');
+    logger.i('Supabase Key: ${supabasePublishableKey.substring(0, 20)}...');
+    logger.i('Supabase Configured: ${supabaseUrl.isNotEmpty && supabasePublishableKey.isNotEmpty}');
     logger.i('Log file: ${await logger.getLogPath()}');
 
     try {
       // Initialize Supabase only if credentials are provided via dart-define
-      if (Environment.isSupabaseConfigured) {
+      if (supabaseUrl.isNotEmpty && supabasePublishableKey.isNotEmpty) {
         logger.i('Initializing Supabase...');
         await Supabase.initialize(
-          url: Environment.supabaseUrl,
-          anonKey: Environment.supabasePublishableKey,
+          url: supabaseUrl,
+          anonKey: supabasePublishableKey,
         );
         logger.i('Supabase initialized successfully');
 

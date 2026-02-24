@@ -1,33 +1,4 @@
-/// Environment configuration using dart-define
-///
-/// To build with environment variables:
-///
-/// flutter build apk \
-///   --dart-define=SUPABASE_URL=your_url \
-///   --dart-define=SUPABASE_PUBLISHABLE_KEY=your_key
-///
-/// Or for development:
-///
-/// flutter run \
-///   --dart-define=SUPABASE_URL=your_url \
-///   --dart-define=SUPABASE_PUBLISHABLE_KEY=your_key
-
-class Environment {
-  // Supabase credentials - injected at build time via --dart-define
-  static const String supabaseUrl = String.fromEnvironment(
-    'SUPABASE_URL',
-    defaultValue: '', // Empty if not provided
-  );
-
-  static const String supabasePublishableKey = String.fromEnvironment(
-    'SUPABASE_PUBLISHABLE_KEY',
-    defaultValue: '', // Empty if not provided
-  );
-
-  /// Check if Supabase is configured
-  static bool get isSupabaseConfigured {
-    return supabaseUrl.isNotEmpty && supabasePublishableKey.isNotEmpty;
-  }
+// Fichier supprimé : la configuration Supabase est désormais dans supabase_config.dart
 
   /// Get app version
   static const String appVersion = String.fromEnvironment(
