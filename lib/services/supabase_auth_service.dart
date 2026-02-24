@@ -6,18 +6,29 @@ class SupabaseAuthService {
   static final SupabaseAuthService _instance = SupabaseAuthService._internal();
   late final SupabaseClient _supabase;
   late final SharedPreferences _prefs;
+  bool _initialized = false;
 
   factory SupabaseAuthService() {
     return _instance;
   }
 
   SupabaseAuthService._internal() {
-    _supabase = Supabase.instance.client;
+    try {
+      _supabase = Supabase.instance.client;
+    } catch (e) {
+      print('[ERROR] Failed to get Supabase client: $e');
+    }
   }
 
   // Initialize SharedPreferences
   Future<void> init() async {
-    _prefs = await SharedPreferences.getInstance();
+    if (_initialized) return;
+    try {
+      _prefs = await SharedPreferences.getInstance();
+      _initialized = true;
+    } catch (e) {
+      print('[ERROR] Failed to init SharedPreferences: $e');
+    }
   }
 
   // ===================== AUTHENTICATION =====================
@@ -109,17 +120,29 @@ class SupabaseAuthService {
 
   // Check if this is the first launch
   bool get isFirstLaunch {
+    if (!_initialized) {
+      print('[WARNING] Auth service not initialized, assuming first launch');
+      return true;
+    }
     final hasShown = _prefs.getBool('onboarding_shown') ?? false;
     return !hasShown;
   }
 
   // Mark onboarding as shown
   Future<void> markOnboardingAsShown() async {
+    if (!_initialized) {
+      print('[WARNING] Auth service not initialized, cannot mark onboarding');
+      return;
+    }
     await _prefs.setBool('onboarding_shown', true);
   }
 
   // Reset onboarding (for testing)
   Future<void> resetOnboarding() async {
+    if (!_initialized) {
+      print('[WARNING] Auth service not initialized, cannot reset onboarding');
+      return;
+    }
     await _prefs.setBool('onboarding_shown', false);
   }
 
@@ -127,16 +150,27 @@ class SupabaseAuthService {
 
   // Savoir si l'utilisateur a cliqué SKIP lors du premier lancement
   bool get hasSkippedInitialAuth {
+    if (!_initialized) {
+      return false;
+    }
     return _prefs.getBool('skipped_initial_auth') ?? false;
   }
 
   // Mark that user skipped auth
   Future<void> markSkippedInitialAuth() async {
+    if (!_initialized) {
+      print('[WARNING] Auth service not initialized, cannot mark skip');
+      return;
+    }
     await _prefs.setBool('skipped_initial_auth', true);
   }
 
   // Reset skip flag (for testing)
   Future<void> resetSkipFlag() async {
+    if (!_initialized) {
+      print('[WARNING] Auth service not initialized, cannot reset skip');
+      return;
+    }
     await _prefs.setBool('skipped_initial_auth', false);
   }
 }

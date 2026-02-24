@@ -11,56 +11,44 @@ import 'package:aivo/services/supabase_auth_service.dart';
 import 'package:aivo/services/logger_service.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'dart:io';
+import 'dart:async';
 
 void main() async {
-    // Demande la permission d'accès à tous les fichiers sur Android
-    if (Platform.isAndroid) {
-      final status = await Permission.manageExternalStorage.status;
-      if (!status.isGranted) {
-        final result = await Permission.manageExternalStorage.request();
-        if (!result.isGranted) {
-          print('Permission MANAGE_EXTERNAL_STORAGE refusée. Certaines fonctionnalités peuvent être limitées.');
-        }
-      }
-    }
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize logger service
+  // Request permissions early (but don't wait for them)
+  if (Platform.isAndroid) {
+    unawaited(Permission.manageExternalStorage.request());
+  }
+
+  // Initialize auth service EARLY - this MUST happen before app runs
+  try {
+    final authService = SupabaseAuthService();
+    await authService.init();
+    print('[STARTUP] Auth service initialized');
+  } catch (e) {
+    print('[STARTUP] Failed to init auth service: $e');
+  }
+
+  // Initialize logger service (non-blocking)
   try {
     final logger = LoggerService();
-    await logger.init();
+    unawaited(logger.init());
+  } catch (e) {
+    print('[STARTUP] Failed to init logger: $e');
+  }
 
-    // Debug: Print supabase configuration
-    logger.i('=== AIVO App Startup ===');
-    logger.i('Supabase URL: $supabaseUrl');
-    logger.i('Supabase Key: ${supabasePublishableKey.substring(0, 20)}...');
-    logger.i('Supabase Configured: ${supabaseUrl.isNotEmpty && supabasePublishableKey.isNotEmpty}');
-    logger.i('Log file: ${await logger.getLogPath()}');
-
+  // Initialize Supabase (non-blocking)
+  if (supabaseUrl.isNotEmpty && supabasePublishableKey.isNotEmpty) {
     try {
-      // Initialize Supabase only if credentials are provided via dart-define
-      if (supabaseUrl.isNotEmpty && supabasePublishableKey.isNotEmpty) {
-        logger.i('Initializing Supabase...');
-        await Supabase.initialize(
-          url: supabaseUrl,
-          anonKey: supabasePublishableKey,
-        );
-        logger.i('Supabase initialized successfully');
-
-        // Initialize Auth Service
-        final authService = SupabaseAuthService();
-        await authService.init();
-        logger.i('Auth service initialized');
-      } else {
-        logger.w('Supabase not configured. Build with --dart-define flags.');
-      }
+      await Supabase.initialize(
+        url: supabaseUrl,
+        anonKey: supabasePublishableKey,
+      );
+      print('[STARTUP] Supabase initialized');
     } catch (e) {
-      // Supabase optional - app can work without it
-      logger.e('Supabase initialization failed: $e', e);
+      print('[STARTUP] Supabase init failed: $e');
     }
-  } catch (e, st) {
-    print('FATAL ERROR: Failed to initialize logger or Supabase: $e');
-    print('Stack trace: $st');
   }
 
   runApp(const MyApp());
@@ -99,13 +87,11 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    // Determine initial route based on auth state and first launch
+    // Use the singleton instance that was initialized in main()
     final authService = SupabaseAuthService();
-    String initialRoute = onbordingScreenRoute;
-
-    if (!authService.isFirstLaunch) {
-      initialRoute = entryPointScreenRoute;
-    }
+    final initialRoute = authService.isFirstLaunch
+      ? onbordingScreenRoute
+      : entryPointScreenRoute;
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
