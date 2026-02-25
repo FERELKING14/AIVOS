@@ -21,7 +21,20 @@ void main() async {
     unawaited(Permission.manageExternalStorage.request());
   }
 
-  // Initialize auth service EARLY - this MUST happen before app runs
+  // Initialize Supabase FIRST - auth services depend on this
+  if (supabaseUrl.isNotEmpty && supabasePublishableKey.isNotEmpty) {
+    try {
+      await Supabase.initialize(
+        url: supabaseUrl,
+        anonKey: supabasePublishableKey,
+      );
+      print('[STARTUP] Supabase initialized');
+    } catch (e) {
+      print('[STARTUP] Supabase init failed: $e');
+    }
+  }
+
+  // Initialize auth service - now safe because Supabase is ready
   try {
     final authService = SupabaseAuthService();
     await authService.init();
@@ -36,19 +49,6 @@ void main() async {
     unawaited(logger.init());
   } catch (e) {
     print('[STARTUP] Failed to init logger: $e');
-  }
-
-  // Initialize Supabase (non-blocking)
-  if (supabaseUrl.isNotEmpty && supabasePublishableKey.isNotEmpty) {
-    try {
-      await Supabase.initialize(
-        url: supabaseUrl,
-        anonKey: supabasePublishableKey,
-      );
-      print('[STARTUP] Supabase initialized');
-    } catch (e) {
-      print('[STARTUP] Supabase init failed: $e');
-    }
   }
 
   runApp(const MyApp());
