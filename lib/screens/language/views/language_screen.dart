@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:aivo/core/localization/localization_provider.dart';
 import 'package:aivo/constants.dart';
 
-class LanguageScreen extends StatefulWidget {
+class LanguageScreen extends StatefulWidget { 
   const LanguageScreen({super.key});
 
     @override
       State<LanguageScreen> createState() => _LanguageScreenState();
       }
 
-      class _LanguageScreenState extends State<LanguageScreen> {
+  class _LanguageScreenState extends State<LanguageScreen> { 
   String _search = '';
 
   @override
@@ -66,9 +66,8 @@ class LanguageScreen extends StatefulWidget {
         return '🏳️';
     }
   }
-                                                                                                                                                                                                                                                                                    final flag = _getFlag(locale.languageCode);
-                                                                                                                                                                                                                                                                                                    final isSelected = localization.locale.languageCode == locale.languageCode;
                                                                                                                                                                                                                                                                                                                     return ListTile(
+  }
                                                                                                                                                                                                                                                                                                                                       leading: Text(flag, style: const TextStyle(fontSize: 24)),
                                                                                                                                                                                                                                                                                                                                                         title: Text(name),
                                                                                                                                                                                                                                                                                                                                                                           trailing: isSelected ? const Icon(Icons.check, color: primaryColor) : null,
