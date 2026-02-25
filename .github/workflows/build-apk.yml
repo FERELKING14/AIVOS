@@ -19,22 +19,43 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
+
       - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
+          flutter-version: 'stable'
+          cache: true
 
-      - name: Clean Gradle cache
-        run: rm -rf ~/.gradle/caches
+      - name: Cache pub packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.pub-cache
+          key: pub-cache-${{ runner.os }}-${{ hashFiles('**/pubspec.yaml') }}
+          restore-keys: |
+            pub-cache-${{ runner.os }}-
+
+      - name: Cache gradle
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ runner.os }}-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            gradle-${{ runner.os }}-
+
+
+
 
       - name: Get dependencies
         run: flutter pub get
 
-      - name: Build APK armv8
+      - name: Build APK arm64 only
         run: |
           flutter build apk \
-            --target-platform android-arm64 \
             --release \
-            --split-per-abi \
+            --target-platform android-arm64 \
             --dart-define=SUPABASE_URL=${{ secrets.SUPABASE_URL }} \
             --dart-define=SUPABASE_PUBLISHABLE_KEY=${{ secrets.SUPABASE_PUBLISHABLE_KEY }}
 
