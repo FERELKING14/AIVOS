@@ -82,6 +82,34 @@ String _getInitialRoute() {
 }
 
 Route<dynamic> generateRoute(RouteSettings settings) {
+          case languageScreenRoute:
+            return MaterialPageRoute(
+              builder: (context) => const LanguageScreen(),
+            );
+      case wishlistScreenRoute:
+        return MaterialPageRoute(
+          builder: (context) => const WishlistScreen(),
+        );
+      case returnsScreenRoute:
+        return MaterialPageRoute(
+          builder: (context) => const ReturnsScreen(),
+        );
+      case themeScreenRoute:
+        return MaterialPageRoute(
+          builder: (context) => const ThemeScreen(),
+        );
+      case cookiePreferencesScreenRoute:
+        return MaterialPageRoute(
+          builder: (context) => const CookiePreferencesScreen(),
+        );
+      case faqScreenRoute:
+        return MaterialPageRoute(
+          builder: (context) => const FAQScreen(),
+        );
+      case getHelpScreenRoute:
+        return MaterialPageRoute(
+          builder: (context) => const GetHelpScreen(),
+        );
   switch (settings.name) {
     case onbordingScreenRoute:
       return MaterialPageRoute(

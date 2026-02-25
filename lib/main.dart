@@ -6,6 +6,7 @@ import 'package:aivo/core/localization/localization_provider.dart';
 import 'package:aivo/route/route_constants.dart';
 import 'package:aivo/route/router.dart' as router;
 import 'package:aivo/theme/app_theme.dart';
+import 'package:aivo/theme/theme_provider.dart';
 import 'package:aivo/utils/db_explorer.dart';
 import 'package:aivo/services/supabase_auth_service.dart';
 import 'package:aivo/services/logger_service.dart';
@@ -63,6 +64,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   late LocalizationProvider _localizationProvider;
+  final ThemeProvider _themeProvider = ThemeProvider();
 
   @override
   void initState() {
@@ -80,35 +82,40 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _onLocaleChanged() {
-    setState(() {
-      // Rebuild widget tree when locale changes
-    });
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    // Use the singleton instance that was initialized in main()
     final authService = SupabaseAuthService();
     final initialRoute = authService.isFirstLaunch
-      ? onbordingScreenRoute
-      : entryPointScreenRoute;
+        ? onbordingScreenRoute
+        : entryPointScreenRoute;
 
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'AIVO - E-Commerce App',
-      theme: AppTheme.lightTheme(context),
-      themeMode: ThemeMode.light,
-      locale: _localizationProvider.locale,
-      supportedLocales: LocalizationProvider.supportedLocales,
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      onGenerateRoute: router.generateRoute,
-      initialRoute: initialRoute,
+    return AnimatedBuilder(
+      animation: _themeProvider,
+      builder: (context, _) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'AIVO - E-Commerce App',
+          theme: AppTheme.lightTheme(context),
+          darkTheme: ThemeData.dark(),
+          themeMode: _themeProvider.themeMode,
+          locale: _localizationProvider.locale,
+          supportedLocales: LocalizationProvider.supportedLocales,
+          localizationsDelegates: const [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          onGenerateRoute: router.generateRoute,
+          initialRoute: initialRoute,
+        );
+      },
     );
   }
+  // Permet d'accéder au ThemeProvider depuis l'app
+  ThemeProvider get themeProvider => _themeProvider;
 }
 
 /// Provider for accessing localization from anywhere in the app

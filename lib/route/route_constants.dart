@@ -1,3 +1,9 @@
+const String languageScreenRoute = "language_screen";
+const String wishlistScreenRoute = "wishlist";
+const String returnsScreenRoute = "returns";
+const String themeScreenRoute = "theme";
+const String cookiePreferencesScreenRoute = "cookie_preferences";
+const String faqScreenRoute = "faq";
 const String onbordingScreenRoute = "onbording";
 const String notificationPermissionScreenRoute = "notification_permission";
 const String preferredLanuageScreenRoute = "preferred_language";

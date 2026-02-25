@@ -1,3 +1,10 @@
+export '/screens/language/views/language_screen.dart';
+export '/screens/wishlist/views/wishlist_screen.dart';
+export '/screens/returns/views/returns_screen.dart';
+export '/screens/theme/views/theme_screen.dart';
+export '/screens/cookie_preferences/views/cookie_preferences_screen.dart';
+export '/screens/faq/views/faq_screen.dart';
+export '/screens/help/views/get_help_screen.dart';
 export '/screens/onbording/views/onbording_screnn.dart';
 export '/screens/auth/views/login_screen.dart';
 export '/screens/auth/views/password_recovery_screen.dart';

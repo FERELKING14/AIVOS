@@ -68,7 +68,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // If not logged in, show login prompt
+    // Si non connecté, invite à se connecter
     if (!_isLoggedIn) {
       return Scaffold(
         body: Center(
@@ -86,18 +86,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               const SizedBox(height: defaultPadding),
               Text(
-                "You need to login",
+                "Vous devez vous connecter",
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               const SizedBox(height: defaultPadding / 2),
               const Text(
-                "Sign in to access your profile and personalized features",
+                "Connectez-vous pour accéder à votre profil et aux fonctionnalités personnalisées",
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: defaultPadding * 2),
               ElevatedButton(
                 onPressed: _handleLogin,
-                child: const Text("LOGIN"),
+                child: const Text("CONNEXION"),
               ),
             ],
           ),
@@ -105,10 +105,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
       );
     }
 
-    // If logged in, show full profile
+    // Si connecté, affiche le profil complet selon l'arbre proposé
     return Scaffold(
       body: ListView(
         children: [
+          // Carte profil
           ProfileCard(
             name: _userEmail.split('@')[0],
             email: _userEmail,
@@ -117,19 +118,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Navigator.pushNamed(context, userInfoScreenRoute);
             },
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: defaultPadding, vertical: defaultPadding * 1.5),
-            child: GestureDetector(
-              onTap: () {},
-              child: const AspectRatio(
-                aspectRatio: 1.8,
-                child:
-                    NetworkImageWithLoader("https://i.imgur.com/dz0BBom.png"),
-              ),
-            ),
-          ),
+          const SizedBox(height: defaultPadding),
 
+          // Section ACCOUNT
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
             child: Text(
@@ -137,7 +128,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               style: Theme.of(context).textTheme.titleSmall,
             ),
           ),
-          const SizedBox(height: defaultPadding / 2),
+          const SizedBox(height: 8),
           ProfileMenuListTile(
             text: "Orders",
             svgSrc: "assets/icons/Order.svg",
@@ -148,12 +139,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ProfileMenuListTile(
             text: "Returns",
             svgSrc: "assets/icons/Return.svg",
-            press: () {},
+            press: () {
+              Navigator.pushNamed(context, returnsScreenRoute);
+            },
           ),
           ProfileMenuListTile(
             text: "Wishlist",
             svgSrc: "assets/icons/Wishlist.svg",
-            press: () {},
+            press: () {
+              Navigator.pushNamed(context, wishlistScreenRoute);
+            },
           ),
           ProfileMenuListTile(
             text: "Addresses",
@@ -177,59 +172,63 @@ class _ProfileScreenState extends State<ProfileScreen> {
             },
           ),
           const SizedBox(height: defaultPadding),
+
+          // Section PREFERENCES
           Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: defaultPadding, vertical: defaultPadding / 2),
+            padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
             child: Text(
-              "Personalization",
+              "Preferences",
               style: Theme.of(context).textTheme.titleSmall,
             ),
           ),
+          const SizedBox(height: 8),
+          ProfileMenuListTile(
+            text: "Language",
+            svgSrc: "assets/icons/Language.svg",
+            press: () {
+              Navigator.pushNamed(context, languageScreenRoute);
+            },
+          ),
+          ProfileMenuListTile(
+            text: "Theme",
+            svgSrc: "assets/icons/Theme.svg",
+            press: () {
+              Navigator.pushNamed(context, themeScreenRoute);
+            },
+          ),
           DividerListTileWithTrilingText(
             svgSrc: "assets/icons/Notification.svg",
-            title: "Notification",
+            title: "Notifications",
             trilingText: "Off",
             press: () {
               Navigator.pushNamed(context, enableNotificationScreenRoute);
             },
           ),
           ProfileMenuListTile(
-            text: "Preferences",
+            text: "Cookie Preferences",
+            svgSrc: "assets/icons/Cookie.svg",
+            press: () {
+              Navigator.pushNamed(context, cookiePreferencesScreenRoute);
+            },
+          ),
+          ProfileMenuListTile(
+            text: "Preferences détaillées",
             svgSrc: "assets/icons/Preferences.svg",
             press: () {
               Navigator.pushNamed(context, preferencesScreenRoute);
             },
           ),
           const SizedBox(height: defaultPadding),
+
+          // Section HELP & SUPPORT
           Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: defaultPadding, vertical: defaultPadding / 2),
-            child: Text(
-              "Settings",
-              style: Theme.of(context).textTheme.titleSmall,
-            ),
-          ),
-          ProfileMenuListTile(
-            text: "Language",
-            svgSrc: "assets/icons/Language.svg",
-            press: () {
-              Navigator.pushNamed(context, selectLanguageScreenRoute);
-            },
-          ),
-          ProfileMenuListTile(
-            text: "Location",
-            svgSrc: "assets/icons/Location.svg",
-            press: () {},
-          ),
-          const SizedBox(height: defaultPadding),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: defaultPadding, vertical: defaultPadding / 2),
+            padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
             child: Text(
               "Help & Support",
               style: Theme.of(context).textTheme.titleSmall,
             ),
           ),
+          const SizedBox(height: 8),
           ProfileMenuListTile(
             text: "Get Help",
             svgSrc: "assets/icons/Help.svg",
@@ -240,7 +239,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ProfileMenuListTile(
             text: "FAQ",
             svgSrc: "assets/icons/FAQ.svg",
-            press: () {},
+            press: () {
+              Navigator.pushNamed(context, faqScreenRoute);
+            },
             isShowDivider: false,
           ),
           const SizedBox(height: defaultPadding),
@@ -262,9 +263,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
               "Log Out",
               style: TextStyle(color: errorColor, fontSize: 14, height: 1),
             ),
-          )
+          ),
         ],
       ),
     );
   }
+
 }
