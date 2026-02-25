@@ -111,7 +111,6 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) => const GetHelpScreen(),
       );
-  switch (settings.name) {
     case onbordingScreenRoute:
       return MaterialPageRoute(
         builder: (context) => const OnBordingScreen(),

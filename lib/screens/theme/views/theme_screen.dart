@@ -17,9 +17,8 @@ class _ThemeScreenState extends State<ThemeScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // Accès au ThemeProvider via le State de MyApp
-    final state = context.findAncestorStateOfType<_MyAppState>();
-    _themeProvider = state?.themeProvider;
+    // Accès au ThemeProvider via le widget racine
+    _themeProvider = ThemeProvider();
   }
 
   @override
