@@ -1,0 +1,8 @@
+# Cache configuration for GitHub Actions
+
+# Cache pub packages
+~/.pub-cache
+
+# Cache gradle
+~/.gradle/caches
+~/.gradle/wrapper
