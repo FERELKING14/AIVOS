@@ -8,10 +8,8 @@ import 'package:flutter/material.dart';
 /// - Persistence of language preference
 /// - Notification of locale changes to listeners
 class LocalizationProvider extends ChangeNotifier {
-    static LocalizationProvider? of(BuildContext context) {
-      final widget = context.findAncestorStateOfType<_MyAppState>();
-      return widget?._localizationProvider;
-    }
+  // Cette méthode est supprimée car _MyAppState n'existe pas ici.
+  // Utilisez une instance globale ou un Provider si besoin d'accès contextuel.
   /// Supported locales in the application
   static const List<Locale> supportedLocales = [
     Locale('en'), // English
