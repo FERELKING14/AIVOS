@@ -51,7 +51,7 @@ class LanguageSelector extends StatelessWidget {
 
   List<Widget> _buildLanguageOptions(
     BuildContext context,
-    LocalizationProviderService localization,
+    LocalizationProvider localization,
   ) {
     return LocalizationProvider.getSupportedLocalesWithNames()
         .map((localeData) {
