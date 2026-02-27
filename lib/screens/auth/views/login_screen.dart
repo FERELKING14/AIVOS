@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
       Navigator.pushNamedAndRemoveUntil(
         context,
         entryPointScreenRoute,
-        ModalRoute.withName(logInScreenRoute),
+        (route) => false,
       );
     } catch (e) {
       final errorMessage = e.toString();

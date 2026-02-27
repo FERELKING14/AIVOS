@@ -1611,6 +1611,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'({count} Reviews)'**
   String reviewsCount(Object count);
+
+  /// No description provided for @welcomeBackTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome back!'**
+  String get welcomeBackTitle;
+
+  /// No description provided for @logInDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Log in with your data that you entered during your registration.'**
+  String get logInDescription;
+
+  /// No description provided for @logInFailedError.
+  ///
+  /// In en, this message translates to:
+  /// **'Login failed'**
+  String get logInFailedError;
+
+  /// No description provided for @skipButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get skipButton;
+
+  /// No description provided for @allFieldsRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please fill in all fields'**
+  String get allFieldsRequired;
 }
 
 class _AppLocalizationsDelegate

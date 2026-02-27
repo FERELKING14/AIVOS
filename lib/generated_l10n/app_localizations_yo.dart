@@ -596,16 +596,16 @@ class AppLocalizationsYo extends AppLocalizations {
   String get specialOffer => 'Ọfọ Iyalẹnu';
 
   @override
-  String get logInTitle => 'Wòle';
+  String get logInTitle => 'Wọlé';
 
   @override
-  String get forgotPasswordButton => 'Ṣubẹ Ọrọ Isiro?';
+  String get forgotPasswordButton => 'Rántí ọ̀fìn ìsirí?';
 
   @override
-  String get dontHaveAccount => 'Ṣe o ko ni akọọlẹ?';
+  String get dontHaveAccount => 'Àkó lé àkáun?';
 
   @override
-  String get signUpButton => 'Forukọsilẹ';
+  String get signUpButton => 'Forígisá';
 
   @override
   String get loginFailedError => 'Wòle Kuna';
@@ -621,10 +621,10 @@ class AppLocalizationsYo extends AppLocalizations {
   String get resetPasswordError => 'Aṣiṣe atunbasi ọrọ isiro';
 
   @override
-  String get emailPlaceholder => 'Adiresi Imẹili';
+  String get emailPlaceholder => 'Ọ̀rọ̀ tí a fi rán';
 
   @override
-  String get passwordPlaceholder => 'Ọrọ Isiro';
+  String get passwordPlaceholder => 'Ọ̀fìn ìsirí';
 
   @override
   String get askQuestion => 'Beere Ibeère';
@@ -775,4 +775,19 @@ class AppLocalizationsYo extends AppLocalizations {
   String reviewsCount(Object count) {
     return '($count Awọn Atunwo)';
   }
+
+  @override
+  String get welcomeBackTitle => 'Kaabọ̀ pẹ̀lú!';
+
+  @override
+  String get logInDescription => 'Wọlé pẹ̀lú data tí o tẹ̀ sí ajọ ìforígì.';
+
+  @override
+  String get logInFailedError => 'Wọ̀lé kúrò';
+
+  @override
+  String get skipButton => 'Fòlò';
+
+  @override
+  String get allFieldsRequired => 'Báwo ni a mọ alaye gbogbo àáye';
 }

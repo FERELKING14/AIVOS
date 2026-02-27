@@ -598,7 +598,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get specialOffer => 'Offre spéciale';
 
   @override
-  String get logInTitle => 'Connexion';
+  String get logInTitle => 'Se connecter';
 
   @override
   String get forgotPasswordButton => 'Mot de passe oublié?';
@@ -780,4 +780,20 @@ class AppLocalizationsFr extends AppLocalizations {
   String reviewsCount(Object count) {
     return '($count Avis)';
   }
+
+  @override
+  String get welcomeBackTitle => 'Bienvenue!';
+
+  @override
+  String get logInDescription =>
+      'Connectez-vous avec les données que vous avez saisies lors de votre inscription.';
+
+  @override
+  String get logInFailedError => 'Échec de la connexion';
+
+  @override
+  String get skipButton => 'Passer';
+
+  @override
+  String get allFieldsRequired => 'Veuillez remplir tous les champs';
 }

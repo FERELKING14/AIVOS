@@ -596,16 +596,16 @@ class AppLocalizationsAm extends AppLocalizations {
   String get specialOffer => 'ልዩ ዋጋ';
 
   @override
-  String get logInTitle => 'ግባ';
+  String get logInTitle => 'ይግባኝ';
 
   @override
-  String get forgotPasswordButton => 'ይለፍ ቃል ረስተዋል?';
+  String get forgotPasswordButton => 'ይለፈፍ ረስተሃል?';
 
   @override
-  String get dontHaveAccount => 'ሂሳብ የሉትም?';
+  String get dontHaveAccount => ' jamie ስሩ?';
 
   @override
-  String get signUpButton => 'ተመዝገቡ';
+  String get signUpButton => 'ይመዝገቡ';
 
   @override
   String get loginFailedError => 'ግባ ወደ ላይ ሳቅ';
@@ -623,7 +623,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get emailPlaceholder => 'ኢሜል አድራሻ';
 
   @override
-  String get passwordPlaceholder => 'ይለፍ ቃል';
+  String get passwordPlaceholder => 'ይለፈፍ';
 
   @override
   String get askQuestion => 'ጥያቄ ይጠይቁ';
@@ -773,4 +773,19 @@ class AppLocalizationsAm extends AppLocalizations {
   String reviewsCount(Object count) {
     return '($count ግምገማዎች)';
   }
+
+  @override
+  String get welcomeBackTitle => 'እንደገና ተቀበለህ!';
+
+  @override
+  String get logInDescription => 'በመመዝገብ ወቅት ያስገባህ ውሂብህን በመጠቀም ይግባኝ።';
+
+  @override
+  String get logInFailedError => 'ይግባኝ ውድቅ ተደርጓል';
+
+  @override
+  String get skipButton => 'ዘለል';
+
+  @override
+  String get allFieldsRequired => 'ሁሉንም መስኮች ሙላት';
 }

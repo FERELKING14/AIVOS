@@ -601,13 +601,13 @@ class AppLocalizationsSw extends AppLocalizations {
   String get logInTitle => 'Ingia';
 
   @override
-  String get forgotPasswordButton => 'Umesahau Neno la Siri?';
+  String get forgotPasswordButton => 'Umesahau neno la siri?';
 
   @override
-  String get dontHaveAccount => 'Huna akaunti?';
+  String get dontHaveAccount => 'Je, huna akaunti?';
 
   @override
-  String get signUpButton => 'Jandali';
+  String get signUpButton => 'Jiandikishe';
 
   @override
   String get loginFailedError => 'Ingia Hakuniwezi';
@@ -623,10 +623,10 @@ class AppLocalizationsSw extends AppLocalizations {
   String get resetPasswordError => 'Kosa la kuseti neno la siri';
 
   @override
-  String get emailPlaceholder => 'Anwani ya Barua';
+  String get emailPlaceholder => 'Anwani ya barua pepe';
 
   @override
-  String get passwordPlaceholder => 'Neno la Siri';
+  String get passwordPlaceholder => 'Neno la siri';
 
   @override
   String get askQuestion => 'Uliza Swali';
@@ -778,4 +778,20 @@ class AppLocalizationsSw extends AppLocalizations {
   String reviewsCount(Object count) {
     return '($count Mapamaji)';
   }
+
+  @override
+  String get welcomeBackTitle => 'Karibu rudi!';
+
+  @override
+  String get logInDescription =>
+      'Ingia gamit data uliigiza wakati wa kujiandikisha.';
+
+  @override
+  String get logInFailedError => 'Kuingia kumeshindwa';
+
+  @override
+  String get skipButton => 'Ruka';
+
+  @override
+  String get allFieldsRequired => 'Tafadhali jaza sehemu zote';
 }

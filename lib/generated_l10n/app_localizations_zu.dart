@@ -601,13 +601,13 @@ class AppLocalizationsZu extends AppLocalizations {
   String get logInTitle => 'Ngena';
 
   @override
-  String get forgotPasswordButton => 'Ukhohlwe Iphasiwedi?';
+  String get forgotPasswordButton => 'Akukukhumbuli iphasiwedi?';
 
   @override
-  String get dontHaveAccount => 'Awunayo I-akhawunti?';
+  String get dontHaveAccount => 'Awunakho i-akhawunti?';
 
   @override
-  String get signUpButton => 'Bhalisela';
+  String get signUpButton => 'Bhalisa';
 
   @override
   String get loginFailedError => 'Ukungena Akuphumelele';
@@ -623,7 +623,7 @@ class AppLocalizationsZu extends AppLocalizations {
   String get resetPasswordError => 'Iphutha lokuwusetha kabusha iphasiwedi';
 
   @override
-  String get emailPlaceholder => 'Ikheli le-Email';
+  String get emailPlaceholder => 'Isikhela se-imeyili';
 
   @override
   String get passwordPlaceholder => 'Iphasiwedi';
@@ -779,4 +779,20 @@ class AppLocalizationsZu extends AppLocalizations {
   String reviewsCount(Object count) {
     return '($count Izibuyekezo)';
   }
+
+  @override
+  String get welcomeBackTitle => 'Umukela kahle!';
+
+  @override
+  String get logInDescription =>
+      'Ngena kusetshenziswa idata oyifake ngesikhathi sokubhalisa.';
+
+  @override
+  String get logInFailedError => 'Ukungena kuhlulekile';
+
+  @override
+  String get skipButton => 'Lewela';
+
+  @override
+  String get allFieldsRequired => 'Sicela uzuzise lonke amasimu';
 }

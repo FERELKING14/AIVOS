@@ -776,4 +776,20 @@ class AppLocalizationsEn extends AppLocalizations {
   String reviewsCount(Object count) {
     return '($count Reviews)';
   }
+
+  @override
+  String get welcomeBackTitle => 'Welcome back!';
+
+  @override
+  String get logInDescription =>
+      'Log in with your data that you entered during your registration.';
+
+  @override
+  String get logInFailedError => 'Login failed';
+
+  @override
+  String get skipButton => 'Skip';
+
+  @override
+  String get allFieldsRequired => 'Please fill in all fields';
 }
