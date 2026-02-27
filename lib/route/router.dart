@@ -318,10 +318,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) => const PreferencesScreen(),
       );
-    // case emptyPaymentScreenRoute:
-    //   return MaterialPageRoute(
-    //     builder: (context) => const EmptyPaymentScreen(),
-    //   );
+    case emptyPaymentScreenRoute:
+      return MaterialPageRoute(
+        builder: (context) => const EmptyPaymentScreen(),
+      );
     case emptyWalletScreenRoute:
       return MaterialPageRoute(
         builder: (context) => const EmptyWalletScreen(),
