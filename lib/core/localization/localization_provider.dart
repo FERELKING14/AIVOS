@@ -20,6 +20,10 @@ class LocalizationProvider extends ChangeNotifier {
   static const List<Locale> supportedLocales = [
     Locale('en'), // English
     Locale('fr'), // French
+    Locale('am'), // Amharic
+    Locale('sw'), // Swahili
+    Locale('yo'), // Yoruba
+    Locale('zu'), // Zulu
   ];
 
   /// Default locale
@@ -39,6 +43,18 @@ class LocalizationProvider extends ChangeNotifier {
 
   /// Checks if current locale is French
   bool get isFrench => _locale.languageCode == 'fr';
+
+  /// Checks if current locale is Amharic
+  bool get isAmharic => _locale.languageCode == 'am';
+
+  /// Checks if current locale is Swahili
+  bool get isSwahili => _locale.languageCode == 'sw';
+
+  /// Checks if current locale is Yoruba
+  bool get isYoruba => _locale.languageCode == 'yo';
+
+  /// Checks if current locale is Zulu
+  bool get isZulu => _locale.languageCode == 'zu';
 
   /// Initialize localization provider with system locale or saved preference
   ///
@@ -106,14 +122,23 @@ class LocalizationProvider extends ChangeNotifier {
   /// Gets the display name for a locale
   ///
   /// Example outputs:
-  /// - Locale('en') → "English"
-  /// - Locale('fr') → "Français"
+  /// - Locale('en') → "🇺🇸 English"
+  /// - Locale('fr') → "🇫🇷 Français"
+  /// - Locale('am') → "🇪🇹 አማርኛ"
   static String getLocaleName(Locale locale) {
     switch (locale.languageCode) {
       case 'en':
-        return 'English';
+        return '🇺🇸 English';
       case 'fr':
-        return 'Français';
+        return '🇫🇷 Français';
+      case 'am':
+        return '🇪🇹 አማርኛ';
+      case 'sw':
+        return '🇹🇿 Kiswahili';
+      case 'yo':
+        return '🇳🇬 Yorùbá';
+      case 'zu':
+        return '🇿🇦 isiZulu';
       default:
         return locale.languageCode;
     }
@@ -124,8 +149,12 @@ class LocalizationProvider extends ChangeNotifier {
   /// Useful for building language selection UI
   static List<(Locale, String)> getSupportedLocalesWithNames() {
     return [
-      (const Locale('en'), 'English'),
-      (const Locale('fr'), 'Français'),
+      (const Locale('en'), '🇺🇸 English'),
+      (const Locale('fr'), '🇫🇷 Français'),
+      (const Locale('am'), '🇪🇹 አማርኛ'),
+      (const Locale('sw'), '🇹🇿 Kiswahili'),
+      (const Locale('yo'), '🇳🇬 Yorùbá'),
+      (const Locale('zu'), '🇿🇦 isiZulu'),
     ];
   }
 }

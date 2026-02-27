@@ -5,8 +5,12 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
+import 'app_localizations_am.dart';
 import 'app_localizations_en.dart';
 import 'app_localizations_fr.dart';
+import 'app_localizations_sw.dart';
+import 'app_localizations_yo.dart';
+import 'app_localizations_zu.dart';
 
 // ignore_for_file: type=lint
 
@@ -94,8 +98,12 @@ abstract class AppLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
+    Locale('am'),
     Locale('en'),
-    Locale('fr')
+    Locale('fr'),
+    Locale('sw'),
+    Locale('yo'),
+    Locale('zu')
   ];
 
   /// No description provided for @appTitle.
@@ -1249,6 +1257,360 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Special Offer'**
   String get specialOffer;
+
+  /// No description provided for @logInTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Log in'**
+  String get logInTitle;
+
+  /// No description provided for @forgotPasswordButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password?'**
+  String get forgotPasswordButton;
+
+  /// No description provided for @dontHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t have an account?'**
+  String get dontHaveAccount;
+
+  /// No description provided for @signUpButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign up'**
+  String get signUpButton;
+
+  /// No description provided for @loginFailedError.
+  ///
+  /// In en, this message translates to:
+  /// **'Login failed'**
+  String get loginFailedError;
+
+  /// No description provided for @signupFailedError.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign up failed'**
+  String get signupFailedError;
+
+  /// No description provided for @passwordResetSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Password reset link sent to your email!'**
+  String get passwordResetSent;
+
+  /// No description provided for @resetPasswordError.
+  ///
+  /// In en, this message translates to:
+  /// **'Error resetting password'**
+  String get resetPasswordError;
+
+  /// No description provided for @emailPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Email address'**
+  String get emailPlaceholder;
+
+  /// No description provided for @passwordPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get passwordPlaceholder;
+
+  /// No description provided for @askQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask a question'**
+  String get askQuestion;
+
+  /// No description provided for @askQuestion1.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask your question'**
+  String get askQuestion1;
+
+  /// No description provided for @yourQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Your question...'**
+  String get yourQuestion;
+
+  /// No description provided for @send.
+  ///
+  /// In en, this message translates to:
+  /// **'Send'**
+  String get send;
+
+  /// No description provided for @popularFaq.
+  ///
+  /// In en, this message translates to:
+  /// **'Popular FAQ'**
+  String get popularFaq;
+
+  /// No description provided for @allFaq.
+  ///
+  /// In en, this message translates to:
+  /// **'All FAQ'**
+  String get allFaq;
+
+  /// No description provided for @noFaqAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No FAQ available at the moment'**
+  String get noFaqAvailable;
+
+  /// No description provided for @faqLike.
+  ///
+  /// In en, this message translates to:
+  /// **'Like'**
+  String get faqLike;
+
+  /// No description provided for @cookiePreferences.
+  ///
+  /// In en, this message translates to:
+  /// **'Cookie Preferences'**
+  String get cookiePreferences;
+
+  /// No description provided for @resetPreferences.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Preferences'**
+  String get resetPreferences;
+
+  /// No description provided for @preferencesReset.
+  ///
+  /// In en, this message translates to:
+  /// **'Preferences reset'**
+  String get preferencesReset;
+
+  /// No description provided for @theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get theme;
+
+  /// No description provided for @lightTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get lightTheme;
+
+  /// No description provided for @darkTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get darkTheme;
+
+  /// No description provided for @systemTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get systemTheme;
+
+  /// No description provided for @emptyWishlist.
+  ///
+  /// In en, this message translates to:
+  /// **'Your wishlist is empty'**
+  String get emptyWishlist;
+
+  /// No description provided for @emptyWishlistDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Add products to your wishlist to find them easily'**
+  String get emptyWishlistDescription;
+
+  /// No description provided for @myWishlist.
+  ///
+  /// In en, this message translates to:
+  /// **'My Wishlist'**
+  String get myWishlist;
+
+  /// No description provided for @deleteAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete all'**
+  String get deleteAll;
+
+  /// No description provided for @addToWishlistError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not add to wishlist'**
+  String get addToWishlistError;
+
+  /// No description provided for @walletTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Wallet'**
+  String get walletTitle;
+
+  /// No description provided for @chargeBalance.
+  ///
+  /// In en, this message translates to:
+  /// **'+ Charge Balance'**
+  String get chargeBalance;
+
+  /// No description provided for @logoutFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout failed'**
+  String get logoutFailed;
+
+  /// No description provided for @loggedOutSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Logged out successfully'**
+  String get loggedOutSuccessfully;
+
+  /// No description provided for @returnsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Returns'**
+  String get returnsTitle;
+
+  /// No description provided for @returnsComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Returns (coming soon)'**
+  String get returnsComingSoon;
+
+  /// No description provided for @helpTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Help'**
+  String get helpTitle;
+
+  /// No description provided for @helpComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Help (coming soon)'**
+  String get helpComingSoon;
+
+  /// No description provided for @selectLanguage2.
+  ///
+  /// In en, this message translates to:
+  /// **'Select a language'**
+  String get selectLanguage2;
+
+  /// No description provided for @searchLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Search for a language...'**
+  String get searchLanguage;
+
+  /// No description provided for @connection.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get connection;
+
+  /// No description provided for @findItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Find the item you\'ve been looking for'**
+  String get findItem;
+
+  /// No description provided for @getShoppingBags.
+  ///
+  /// In en, this message translates to:
+  /// **'Get those shopping bags filled'**
+  String get getShoppingBags;
+
+  /// No description provided for @fastSecurePayment.
+  ///
+  /// In en, this message translates to:
+  /// **'Fast & secure payment'**
+  String get fastSecurePayment;
+
+  /// No description provided for @paymentOptions.
+  ///
+  /// In en, this message translates to:
+  /// **'There are many payment options available for your ease'**
+  String get paymentOptions;
+
+  /// No description provided for @packageTracking.
+  ///
+  /// In en, this message translates to:
+  /// **'Package tracking'**
+  String get packageTracking;
+
+  /// No description provided for @nearbyStores.
+  ///
+  /// In en, this message translates to:
+  /// **'Nearby stores'**
+  String get nearbyStores;
+
+  /// No description provided for @noBestSellers.
+  ///
+  /// In en, this message translates to:
+  /// **'No best sellers available'**
+  String get noBestSellers;
+
+  /// No description provided for @noProducts.
+  ///
+  /// In en, this message translates to:
+  /// **'No products available'**
+  String get noProducts;
+
+  /// No description provided for @noFlashSale.
+  ///
+  /// In en, this message translates to:
+  /// **'No flash sale products'**
+  String get noFlashSale;
+
+  /// No description provided for @noPopularProducts.
+  ///
+  /// In en, this message translates to:
+  /// **'No popular products'**
+  String get noPopularProducts;
+
+  /// No description provided for @sizeGuideTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Size guide'**
+  String get sizeGuideTitle;
+
+  /// No description provided for @checkStores.
+  ///
+  /// In en, this message translates to:
+  /// **'Check stores'**
+  String get checkStores;
+
+  /// No description provided for @continueShoppingBtn.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue shopping'**
+  String get continueShoppingBtn;
+
+  /// No description provided for @checkoutBtn.
+  ///
+  /// In en, this message translates to:
+  /// **'Checkout'**
+  String get checkoutBtn;
+
+  /// No description provided for @sleevelessRuffleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sleeveless Ruffle'**
+  String get sleevelessRuffleTitle;
+
+  /// No description provided for @findSomething.
+  ///
+  /// In en, this message translates to:
+  /// **'Find something...'**
+  String get findSomething;
+
+  /// No description provided for @storeSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get storeSettings;
+
+  /// No description provided for @reviewsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'({count} Reviews)'**
+  String reviewsCount(Object count);
 }
 
 class _AppLocalizationsDelegate
@@ -1261,8 +1623,14 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['en', 'fr'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>[
+        'am',
+        'en',
+        'fr',
+        'sw',
+        'yo',
+        'zu'
+      ].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -1271,10 +1639,18 @@ class _AppLocalizationsDelegate
 AppLocalizations lookupAppLocalizations(Locale locale) {
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
+    case 'am':
+      return AppLocalizationsAm();
     case 'en':
       return AppLocalizationsEn();
     case 'fr':
       return AppLocalizationsFr();
+    case 'sw':
+      return AppLocalizationsSw();
+    case 'yo':
+      return AppLocalizationsYo();
+    case 'zu':
+      return AppLocalizationsZu();
   }
 
   throw FlutterError(

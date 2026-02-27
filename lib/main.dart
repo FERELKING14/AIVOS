@@ -7,7 +7,6 @@ import 'package:aivo/route/route_constants.dart';
 import 'package:aivo/route/router.dart' as router;
 import 'package:aivo/theme/app_theme.dart';
 import 'package:aivo/theme/theme_provider.dart';
-import 'package:aivo/utils/db_explorer.dart';
 import 'package:aivo/services/supabase_auth_service.dart';
 import 'package:aivo/services/logger_service.dart';
 import 'package:permission_handler/permission_handler.dart';

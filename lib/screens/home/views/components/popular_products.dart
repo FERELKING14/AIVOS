@@ -2,13 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:aivo/components/product/product_card.dart';
 import 'package:aivo/models/product_model.dart';
 import 'package:aivo/route/screen_export.dart';
+import 'package:aivo/services/supabase_service.dart';
 
 import '../../../../constants.dart';
 
-class PopularProducts extends StatelessWidget {
+class PopularProducts extends StatefulWidget {
   const PopularProducts({
     super.key,
   });
+
+  @override
+  State<PopularProducts> createState() => _PopularProductsState();
+}
+
+class _PopularProductsState extends State<PopularProducts> {
+  late Future<List<ProductModel>> _popularProducts;
+
+  @override
+  void initState() {
+    super.initState();
+    _popularProducts = SupabaseService().getPopularProducts();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,34 +37,41 @@ class PopularProducts extends StatelessWidget {
             style: Theme.of(context).textTheme.titleSmall,
           ),
         ),
-        // While loading use 👇
-        // const ProductsSkelton(),
         SizedBox(
           height: 220,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            // Find demoPopularProducts on models/ProductModel.dart
-            itemCount: demoPopularProducts.length,
-            itemBuilder: (context, index) => Padding(
-              padding: EdgeInsets.only(
-                left: defaultPadding,
-                right: index == demoPopularProducts.length - 1
-                    ? defaultPadding
-                    : 0,
-              ),
-              child: ProductCard(
-                image: demoPopularProducts[index].image,
-                brandName: demoPopularProducts[index].brandName,
-                title: demoPopularProducts[index].title,
-                price: demoPopularProducts[index].price,
-                priceAfetDiscount: demoPopularProducts[index].priceAfetDiscount,
-                dicountpercent: demoPopularProducts[index].dicountpercent,
-                press: () {
-                  Navigator.pushNamed(context, productDetailsScreenRoute,
-                      arguments: index.isEven);
-                },
-              ),
-            ),
+          child: FutureBuilder<List<ProductModel>>(
+            future: _popularProducts,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              }
+              if (snapshot.hasError || !snapshot.hasData || snapshot.data!.isEmpty) {
+                return const Center(child: Text("No products available"));
+              }
+              final products = snapshot.data!;
+              return ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: products.length,
+                itemBuilder: (context, index) => Padding(
+                  padding: EdgeInsets.only(
+                    left: defaultPadding,
+                    right: index == products.length - 1 ? defaultPadding : 0,
+                  ),
+                  child: ProductCard(
+                    image: products[index].imageUrl ?? productDemoImg1,
+                    brandName: products[index].brand ?? "Brand",
+                    title: products[index].title,
+                    price: products[index].price,
+                    priceAfetDiscount: products[index].priceAfetDiscount,
+                    dicountpercent: products[index].dicountpercent,
+                    press: () {
+                      Navigator.pushNamed(context, productDetailsScreenRoute,
+                          arguments: products[index].id);
+                    },
+                  ),
+                ),
+              );
+            },
           ),
         )
       ],

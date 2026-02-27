@@ -595,4 +595,185 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get specialOffer => 'Special Offer';
+
+  @override
+  String get logInTitle => 'Log in';
+
+  @override
+  String get forgotPasswordButton => 'Forgot password?';
+
+  @override
+  String get dontHaveAccount => 'Don\'t have an account?';
+
+  @override
+  String get signUpButton => 'Sign up';
+
+  @override
+  String get loginFailedError => 'Login failed';
+
+  @override
+  String get signupFailedError => 'Sign up failed';
+
+  @override
+  String get passwordResetSent => 'Password reset link sent to your email!';
+
+  @override
+  String get resetPasswordError => 'Error resetting password';
+
+  @override
+  String get emailPlaceholder => 'Email address';
+
+  @override
+  String get passwordPlaceholder => 'Password';
+
+  @override
+  String get askQuestion => 'Ask a question';
+
+  @override
+  String get askQuestion1 => 'Ask your question';
+
+  @override
+  String get yourQuestion => 'Your question...';
+
+  @override
+  String get send => 'Send';
+
+  @override
+  String get popularFaq => 'Popular FAQ';
+
+  @override
+  String get allFaq => 'All FAQ';
+
+  @override
+  String get noFaqAvailable => 'No FAQ available at the moment';
+
+  @override
+  String get faqLike => 'Like';
+
+  @override
+  String get cookiePreferences => 'Cookie Preferences';
+
+  @override
+  String get resetPreferences => 'Reset Preferences';
+
+  @override
+  String get preferencesReset => 'Preferences reset';
+
+  @override
+  String get theme => 'Theme';
+
+  @override
+  String get lightTheme => 'Light';
+
+  @override
+  String get darkTheme => 'Dark';
+
+  @override
+  String get systemTheme => 'System';
+
+  @override
+  String get emptyWishlist => 'Your wishlist is empty';
+
+  @override
+  String get emptyWishlistDescription =>
+      'Add products to your wishlist to find them easily';
+
+  @override
+  String get myWishlist => 'My Wishlist';
+
+  @override
+  String get deleteAll => 'Delete all';
+
+  @override
+  String get addToWishlistError => 'Could not add to wishlist';
+
+  @override
+  String get walletTitle => 'Wallet';
+
+  @override
+  String get chargeBalance => '+ Charge Balance';
+
+  @override
+  String get logoutFailed => 'Logout failed';
+
+  @override
+  String get loggedOutSuccessfully => 'Logged out successfully';
+
+  @override
+  String get returnsTitle => 'Returns';
+
+  @override
+  String get returnsComingSoon => 'Returns (coming soon)';
+
+  @override
+  String get helpTitle => 'Get Help';
+
+  @override
+  String get helpComingSoon => 'Help (coming soon)';
+
+  @override
+  String get selectLanguage2 => 'Select a language';
+
+  @override
+  String get searchLanguage => 'Search for a language...';
+
+  @override
+  String get connection => 'Settings';
+
+  @override
+  String get findItem => 'Find the item you\'ve been looking for';
+
+  @override
+  String get getShoppingBags => 'Get those shopping bags filled';
+
+  @override
+  String get fastSecurePayment => 'Fast & secure payment';
+
+  @override
+  String get paymentOptions =>
+      'There are many payment options available for your ease';
+
+  @override
+  String get packageTracking => 'Package tracking';
+
+  @override
+  String get nearbyStores => 'Nearby stores';
+
+  @override
+  String get noBestSellers => 'No best sellers available';
+
+  @override
+  String get noProducts => 'No products available';
+
+  @override
+  String get noFlashSale => 'No flash sale products';
+
+  @override
+  String get noPopularProducts => 'No popular products';
+
+  @override
+  String get sizeGuideTitle => 'Size guide';
+
+  @override
+  String get checkStores => 'Check stores';
+
+  @override
+  String get continueShoppingBtn => 'Continue shopping';
+
+  @override
+  String get checkoutBtn => 'Checkout';
+
+  @override
+  String get sleevelessRuffleTitle => 'Sleeveless Ruffle';
+
+  @override
+  String get findSomething => 'Find something...';
+
+  @override
+  String get storeSettings => 'Settings';
+
+  @override
+  String reviewsCount(Object count) {
+    return '($count Reviews)';
+  }
 }

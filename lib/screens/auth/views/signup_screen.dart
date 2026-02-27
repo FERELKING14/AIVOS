@@ -158,7 +158,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       child: Text(
                         _errorMessage!,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: errorColor,
                           fontSize: 12,
                         ),

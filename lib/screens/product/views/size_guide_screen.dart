@@ -18,6 +18,6 @@ class _SizeGuideScreenState extends State<SizeGuideScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox();
+    return const SizedBox();
   }
 }

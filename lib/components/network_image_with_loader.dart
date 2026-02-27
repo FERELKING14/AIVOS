@@ -11,7 +11,7 @@ class NetworkImageWithLoader extends StatelessWidget {
     this.src, {
     super.key,
     this.fit = BoxFit.cover,
-    this.radius = defaultPadding,
+    this.radius = defaultBorderRadious,
   });
 
   final String src;

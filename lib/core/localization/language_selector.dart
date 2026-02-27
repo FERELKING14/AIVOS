@@ -17,7 +17,7 @@ import 'package:aivo/main.dart';
 /// Text(AppLocalizations.of(context)!.appTitle)
 /// ```
 class LanguageSelector extends StatelessWidget {
-  const LanguageSelector({Key? key}) : super(key: key);
+  const LanguageSelector({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -92,9 +92,9 @@ class LanguagePreferenceTile extends StatelessWidget {
   final VoidCallback? onTap;
 
   const LanguagePreferenceTile({
-    Key? key,
+    super.key,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

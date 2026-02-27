@@ -107,7 +107,7 @@ lib/
 ## Getting Started
 
 ### Prerequisites
-- Flutter 3.2.0 or higher
+- Flutter 3.35 or higher
 - Dart 3.0.0 or higher
 - Supabase account (https://supabase.com)
 - Android SDK 21+ or iOS 12+

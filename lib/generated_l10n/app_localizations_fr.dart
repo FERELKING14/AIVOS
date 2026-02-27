@@ -596,4 +596,188 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get specialOffer => 'Offre spéciale';
+
+  @override
+  String get logInTitle => 'Connexion';
+
+  @override
+  String get forgotPasswordButton => 'Mot de passe oublié?';
+
+  @override
+  String get dontHaveAccount => 'Vous n\'avez pas de compte?';
+
+  @override
+  String get signUpButton => 'S\'inscrire';
+
+  @override
+  String get loginFailedError => 'Échec de la connexion';
+
+  @override
+  String get signupFailedError => 'Échec de l\'inscription';
+
+  @override
+  String get passwordResetSent =>
+      'Lien de réinitialisation du mot de passe envoyé à votre e-mail!';
+
+  @override
+  String get resetPasswordError =>
+      'Erreur lors de la réinitialisation du mot de passe';
+
+  @override
+  String get emailPlaceholder => 'Adresse e-mail';
+
+  @override
+  String get passwordPlaceholder => 'Mot de passe';
+
+  @override
+  String get askQuestion => 'Poser une question';
+
+  @override
+  String get askQuestion1 => 'Posez votre question';
+
+  @override
+  String get yourQuestion => 'Votre question...';
+
+  @override
+  String get send => 'Envoyer';
+
+  @override
+  String get popularFaq => 'FAQ populaires';
+
+  @override
+  String get allFaq => 'Toutes les FAQ';
+
+  @override
+  String get noFaqAvailable => 'Aucune FAQ disponible pour le moment';
+
+  @override
+  String get faqLike => 'Like';
+
+  @override
+  String get cookiePreferences => 'Préférences de cookies';
+
+  @override
+  String get resetPreferences => 'Réinitialiser les préférences';
+
+  @override
+  String get preferencesReset => 'Préférences réinitialisées';
+
+  @override
+  String get theme => 'Thème';
+
+  @override
+  String get lightTheme => 'Clair';
+
+  @override
+  String get darkTheme => 'Sombre';
+
+  @override
+  String get systemTheme => 'Système';
+
+  @override
+  String get emptyWishlist => 'Votre liste de souhaits est vide';
+
+  @override
+  String get emptyWishlistDescription =>
+      'Ajoutez des produits à votre liste de souhaits pour les retrouver facilement';
+
+  @override
+  String get myWishlist => 'Ma Wishlist';
+
+  @override
+  String get deleteAll => 'Tout supprimer';
+
+  @override
+  String get addToWishlistError =>
+      'Impossible d\'ajouter à la liste de souhaits';
+
+  @override
+  String get walletTitle => 'Portefeuille';
+
+  @override
+  String get chargeBalance => '+ Recharger le solde';
+
+  @override
+  String get logoutFailed => 'Échec de la déconnexion';
+
+  @override
+  String get loggedOutSuccessfully => 'Déconnecté avec succès';
+
+  @override
+  String get returnsTitle => 'Retours';
+
+  @override
+  String get returnsComingSoon => 'Retours (à venir)';
+
+  @override
+  String get helpTitle => 'Obtenir de l\'aide';
+
+  @override
+  String get helpComingSoon => 'Aide (à venir)';
+
+  @override
+  String get selectLanguage2 => 'Sélectionner une langue';
+
+  @override
+  String get searchLanguage => 'Rechercher une langue...';
+
+  @override
+  String get connection => 'Paramètres';
+
+  @override
+  String get findItem => 'Trouvez l\'article que vous recherchiez';
+
+  @override
+  String get getShoppingBags => 'Remplissez vos sacs d\'achat';
+
+  @override
+  String get fastSecurePayment => 'Paiement rapide et sécurisé';
+
+  @override
+  String get paymentOptions =>
+      'De nombreuses options de paiement sont à votre disposition';
+
+  @override
+  String get packageTracking => 'Suivi des colis';
+
+  @override
+  String get nearbyStores => 'Magasins à proximité';
+
+  @override
+  String get noBestSellers => 'Aucun best-seller disponible';
+
+  @override
+  String get noProducts => 'Aucun produit disponible';
+
+  @override
+  String get noFlashSale => 'Aucun produit en vente éclair';
+
+  @override
+  String get noPopularProducts => 'Aucun produit populaire';
+
+  @override
+  String get sizeGuideTitle => 'Guide des tailles';
+
+  @override
+  String get checkStores => 'Vérifier les magasins';
+
+  @override
+  String get continueShoppingBtn => 'Continuer vos achats';
+
+  @override
+  String get checkoutBtn => 'Valider l\'achat';
+
+  @override
+  String get sleevelessRuffleTitle => 'Sans manches à froufrous';
+
+  @override
+  String get findSomething => 'Trouvez quelque chose...';
+
+  @override
+  String get storeSettings => 'Paramètres';
+
+  @override
+  String reviewsCount(Object count) {
+    return '($count Avis)';
+  }
 }

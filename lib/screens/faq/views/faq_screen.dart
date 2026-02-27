@@ -150,12 +150,6 @@ class _FaqTile extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 16),
       child: ExpansionTile(
         title: Text(faq['question'], style: const TextStyle(fontWeight: FontWeight.w600)),
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Text(faq['answer']),
-          ),
-        ],
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -167,6 +161,12 @@ class _FaqTile extends StatelessWidget {
             Text('${faq['likes'] + (faq['liked'] ? 1 : 0)}'),
           ],
         ),
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Text(faq['answer']),
+          ),
+        ],
       ),
     );
   }
