@@ -282,5 +282,17 @@
   "sleevelessRuffleTitle": "Sleeveless Ruffle",
   "findSomething": "Find something...",
   "storeSettings": "Settings",
-  "reviewsCount": "({count} Reviews)"
+  "reviewsCount": "({count} Reviews)",
+
+  "welcomeBackTitle": "Welcome back!",
+  "logInDescription": "Log in with your data that you entered during your registration.",
+  "emailPlaceholder": "Email address",
+  "passwordPlaceholder": "Password",
+  "forgotPasswordButton": "Forgot password?",
+  "logInTitle": "Log in",
+  "logInFailedError": "Login failed",
+  "dontHaveAccount": "Don't have an account?",
+  "signUpButton": "Sign up",
+  "skipButton": "Skip",
+  "allFieldsRequired": "Please fill in all fields"
 }

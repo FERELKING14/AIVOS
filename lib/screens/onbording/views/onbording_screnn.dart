@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:aivo/components/dot_indicators.dart';
 import 'package:aivo/constants.dart';
 import 'package:aivo/route/route_constants.dart';
+import 'package:aivo/services/supabase_auth_service.dart';
 
 import 'components/onbording_content.dart';
 
@@ -76,8 +77,15 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, logInScreenRoute);
+                  onPressed: () async {
+                    final authService = SupabaseAuthService();
+                    await authService.markOnboardingAsShown();
+                    if (!mounted) return;
+                    Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      entryPointScreenRoute,
+                      (route) => false,
+                    );
                   },
                   child: Text(
                     "Skip",
@@ -120,12 +128,19 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
                     height: 60,
                     width: 60,
                     child: ElevatedButton(
-                      onPressed: () {
+                      onPressed: () async {
                         if (_pageIndex < _onbordData.length - 1) {
                           _pageController.nextPage(
                               curve: Curves.ease, duration: defaultDuration);
                         } else {
-                          Navigator.pushNamed(context, logInScreenRoute);
+                          final authService = SupabaseAuthService();
+                          await authService.markOnboardingAsShown();
+                          if (!mounted) return;
+                          Navigator.pushNamedAndRemoveUntil(
+                            context,
+                            entryPointScreenRoute,
+                            (route) => false,
+                          );
                         }
                       },
                       style: ElevatedButton.styleFrom(

@@ -280,5 +280,17 @@
   "sleevelessRuffleTitle": "አንደበር ገብ ስፌቶች",
   "findSomething": "አንድ ሌላ ጀምር...",
   "storeSettings": "ቅንብሮች",
-  "reviewsCount": "({count} ግምገማዎች)"
+  "reviewsCount": "({count} ግምገማዎች)",
+
+  "welcomeBackTitle": "እንደገና ተቀበለህ!",
+  "logInDescription": "በመመዝገብ ወቅት ያስገባህ ውሂብህን በመጠቀም ይግባኝ።",
+  "emailPlaceholder": "ኢሜል አድራሻ",
+  "passwordPlaceholder": "ይለፈፍ",
+  "forgotPasswordButton": "ይለፈፍ ረስተሃል?",
+  "logInTitle": "ይግባኝ",
+  "logInFailedError": "ይግባኝ ውድቅ ተደርጓል",
+  "dontHaveAccount": " jamie ስሩ?",
+  "signUpButton": "ይመዝገቡ",
+  "skipButton": "ዘለል",
+  "allFieldsRequired": "ሁሉንም መስኮች ሙላት"
 }

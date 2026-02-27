@@ -281,5 +281,17 @@
   "sleevelessRuffleTitle": "Sans manches à froufrous",
   "findSomething": "Trouvez quelque chose...",
   "storeSettings": "Paramètres",
-  "reviewsCount": "({count} Avis)"
+  "reviewsCount": "({count} Avis)",
+
+  "welcomeBackTitle": "Bienvenue!",
+  "logInDescription": "Connectez-vous avec les données que vous avez saisies lors de votre inscription.",
+  "emailPlaceholder": "Adresse e-mail",
+  "passwordPlaceholder": "Mot de passe",
+  "forgotPasswordButton": "Mot de passe oublié?",
+  "logInTitle": "Se connecter",
+  "logInFailedError": "Échec de la connexion",
+  "dontHaveAccount": "Vous n'avez pas de compte?",
+  "signUpButton": "S'inscrire",
+  "skipButton": "Passer",
+  "allFieldsRequired": "Veuillez remplir tous les champs"
 }

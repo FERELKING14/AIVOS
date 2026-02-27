@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:aivo/constants.dart';
 import 'package:aivo/route/route_constants.dart';
 import 'package:aivo/services/supabase_auth_service.dart';
+import 'package:aivo/generated_l10n/app_localizations.dart';
 
 import 'components/login_form.dart';
 
@@ -48,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final password = state?.password ?? '';
 
     if (email.isEmpty || password.isEmpty) {
-      _showErrorSnackBar('Please fill in all fields');
+      _showErrorSnackBar(AppLocalizations.of(context)!.allFieldsRequired);
       return;
     }
 
@@ -130,12 +131,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Welcome back!",
+                    AppLocalizations.of(context)!.welcomeBackTitle,
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   const SizedBox(height: defaultPadding / 2),
-                  const Text(
-                    "Log in with your data that you intered during your registration.",
+                  Text(
+                    AppLocalizations.of(context)!.logInDescription,
                   ),
                   const SizedBox(height: defaultPadding),
 
@@ -167,7 +168,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               Navigator.pushNamed(
                                   context, passwordRecoveryScreenRoute);
                             },
-                      child: const Text("Forgot password?"),
+                      child: Text(AppLocalizations.of(context)!.forgotPasswordButton),
                     ),
                   ),
                   SizedBox(
@@ -185,19 +186,19 @@ class _LoginScreenState extends State<LoginScreen> {
                               strokeWidth: 2,
                             ),
                           )
-                        : const Text("Log in"),
+                        : Text(AppLocalizations.of(context)!.logInTitle),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text("Don't have an account?"),
+                      Text(AppLocalizations.of(context)!.dontHaveAccount),
                       TextButton(
                         onPressed: _isLoading
                             ? null
                             : () {
                                 Navigator.pushNamed(context, signUpScreenRoute);
                               },
-                        child: const Text("Sign up"),
+                        child: Text(AppLocalizations.of(context)!.signUpButton),
                       )
                     ],
                   ),

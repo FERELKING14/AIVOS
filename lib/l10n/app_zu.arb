@@ -281,5 +281,17 @@
   "sleevelessRuffleTitle": "Ingaphansi Ruffles",
   "findSomething": "Tholakala nto...",
   "storeSettings": "Imihlelo",
-  "reviewsCount": "({count} Izibuyekezo)"
+  "reviewsCount": "({count} Izibuyekezo)",
+
+  "welcomeBackTitle": "Umukela kahle!",
+  "logInDescription": "Ngena kusetshenziswa idata oyifake ngesikhathi sokubhalisa.",
+  "emailPlaceholder": "Isikhela se-imeyili",
+  "passwordPlaceholder": "Iphasiwedi",
+  "forgotPasswordButton": "Akukukhumbuli iphasiwedi?",
+  "logInTitle": "Ngena",
+  "logInFailedError": "Ukungena kuhlulekile",
+  "dontHaveAccount": "Awunakho i-akhawunti?",
+  "signUpButton": "Bhalisa",
+  "skipButton": "Lewela",
+  "allFieldsRequired": "Sicela uzuzise lonke amasimu"
 }

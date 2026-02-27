@@ -281,5 +281,17 @@
   "sleevelessRuffleTitle": "Aiwe Ruffles",
   "findSomething": "Wa nkan ...",
   "storeSettings": "Awọn Iṣeto",
-  "reviewsCount": "({count} Awọn Atunwo)"
+  "reviewsCount": "({count} Awọn Atunwo)",
+
+  "welcomeBackTitle": "Kaabọ̀ pẹ̀lú!",
+  "logInDescription": "Wọlé pẹ̀lú data tí o tẹ̀ sí ajọ ìforígì.",
+  "emailPlaceholder": "Ọ̀rọ̀ tí a fi rán",
+  "passwordPlaceholder": "Ọ̀fìn ìsirí",
+  "forgotPasswordButton": "Rántí ọ̀fìn ìsirí?",
+  "logInTitle": "Wọlé",
+  "logInFailedError": "Wọ̀lé kúrò",
+  "dontHaveAccount": "Àkó lé àkáun?",
+  "signUpButton": "Forígisá",
+  "skipButton": "Fòlò",
+  "allFieldsRequired": "Báwo ni a mọ alaye gbogbo àáye"
 }

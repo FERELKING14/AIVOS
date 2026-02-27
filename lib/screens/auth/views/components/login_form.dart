@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../constants.dart';
+import '../../../../../constants.dart';
+import '../../../../../generated_l10n/app_localizations.dart';
 
 class LogInForm extends StatefulWidget {
   const LogInForm({
@@ -48,7 +49,7 @@ class _LogInFormState extends State<LogInForm> {
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
-              hintText: "Email address",
+              hintText: AppLocalizations.of(context)!.emailPlaceholder,
               prefixIcon: Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: defaultPadding * 0.75),
@@ -73,7 +74,7 @@ class _LogInFormState extends State<LogInForm> {
             validator: passwordValidator.call,
             obscureText: true,
             decoration: InputDecoration(
-              hintText: "Password",
+              hintText: AppLocalizations.of(context)!.passwordPlaceholder,
               prefixIcon: Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: defaultPadding * 0.75),

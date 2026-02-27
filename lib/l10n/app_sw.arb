@@ -281,5 +281,17 @@
   "sleevelessRuffleTitle": "Bila Mikono Ruffles",
   "findSomething": "Tafuta kitu...",
   "storeSettings": "Mipango",
-  "reviewsCount": "({count} Mapamaji)"
+  "reviewsCount": "({count} Mapamaji)",
+
+  "welcomeBackTitle": "Karibu rudi!",
+  "logInDescription": "Ingia gamit data uliigiza wakati wa kujiandikisha.",
+  "emailPlaceholder": "Anwani ya barua pepe",
+  "passwordPlaceholder": "Neno la siri",
+  "forgotPasswordButton": "Umesahau neno la siri?",
+  "logInTitle": "Ingia",
+  "logInFailedError": "Kuingia kumeshindwa",
+  "dontHaveAccount": "Je, huna akaunti?",
+  "signUpButton": "Jiandikishe",
+  "skipButton": "Ruka",
+  "allFieldsRequired": "Tafadhali jaza sehemu zote"
 }
