@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aivo/config/supabase_config.dart';
 import 'package:aivo/core/localization/localization_provider.dart';
+import 'package:aivo/generated_l10n/app_localizations.dart';
 import 'package:aivo/route/route_constants.dart';
 import 'package:aivo/route/router.dart' as router;
 import 'package:aivo/theme/app_theme.dart';
@@ -102,7 +103,8 @@ class _MyAppState extends State<MyApp> {
           themeMode: _themeProvider.themeMode,
           locale: _localizationProvider.locale,
           supportedLocales: LocalizationProvider.supportedLocales,
-          localizationsDelegates: const [
+          localizationsDelegates: [
+            AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
