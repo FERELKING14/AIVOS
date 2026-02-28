@@ -29,9 +29,9 @@ void main() async {
         url: supabaseUrl,
         anonKey: supabaseAnonKey,
       );
-      print('[STARTUP] Supabase initialized');
+      LoggerService().i('[STARTUP] Supabase initialized');
     } catch (e) {
-      print('[STARTUP] Supabase init failed: $e');
+      LoggerService().i('[STARTUP] Supabase init failed: $e');
     }
   }
 
@@ -39,9 +39,9 @@ void main() async {
   try {
     final authService = SupabaseAuthService();
     await authService.init();
-    print('[STARTUP] Auth service initialized');
+    LoggerService().i('[STARTUP] Auth service initialized');
   } catch (e) {
-    print('[STARTUP] Failed to init auth service: $e');
+    LoggerService().i('[STARTUP] Failed to init auth service: $e');
   }
 
   // Initialize logger service (non-blocking)
@@ -49,7 +49,16 @@ void main() async {
     final logger = LoggerService();
     unawaited(logger.init());
   } catch (e) {
-    print('[STARTUP] Failed to init logger: $e');
+    LoggerService().i('[STARTUP] Failed to init logger: $e');
+  }
+
+  // Initialize theme provider
+  try {
+    final themeProvider = ThemeProvider();
+    await themeProvider.initialize();
+    LoggerService().i('[STARTUP] Theme provider initialized');
+  } catch (e) {
+    LoggerService().i('[STARTUP] Theme provider init failed: $e');
   }
 
   runApp(const MyApp());
@@ -103,7 +112,7 @@ class _MyAppState extends State<MyApp> {
           themeMode: _themeProvider.themeMode,
           locale: _localizationProvider.locale,
           supportedLocales: LocalizationProvider.supportedLocales,
-          localizationsDelegates: [
+          localizationsDelegates: const [
             AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,

@@ -79,7 +79,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 height: 80,
                 width: 80,
                 colorFilter: ColorFilter.mode(
-                  Theme.of(context).iconTheme.color!.withOpacity(0.3),
+                  Theme.of(context).iconTheme.color!.withValues(alpha: 0.3),
                   BlendMode.srcIn,
                 ),
               ),

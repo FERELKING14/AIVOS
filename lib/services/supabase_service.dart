@@ -1,6 +1,7 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aivo/models/product_model.dart';
 import 'package:aivo/models/category_model.dart';
+import 'package:aivo/services/logger_service.dart';
 
 class SupabaseService {
   static final SupabaseService _instance = SupabaseService._internal();
@@ -28,7 +29,7 @@ class SupabaseService {
           .map((p) => ProductModel.fromJson(p))
           .toList();
     } catch (e) {
-      print('Error fetching popular products: $e');
+      LoggerService().e('Error fetching popular products: $e');
       return [];
     }
   }
@@ -45,7 +46,7 @@ class SupabaseService {
           .map((p) => ProductModel.fromJson(p))
           .toList();
     } catch (e) {
-      print('Error fetching flash sale products: $e');
+      LoggerService().e('Error fetching flash sale products: $e');
       return [];
     }
   }
@@ -62,7 +63,7 @@ class SupabaseService {
           .map((p) => ProductModel.fromJson(p))
           .toList();
     } catch (e) {
-      print('Error fetching best sellers: $e');
+      LoggerService().e('Error fetching best sellers: $e');
       return [];
     }
   }
@@ -79,7 +80,7 @@ class SupabaseService {
           .map((p) => ProductModel.fromJson(p))
           .toList();
     } catch (e) {
-      print('Error fetching kids products: $e');
+      LoggerService().e('Error fetching kids products: $e');
       return [];
     }
   }
@@ -93,7 +94,7 @@ class SupabaseService {
           .map((p) => ProductModel.fromJson(p))
           .toList();
     } catch (e) {
-      print('Error fetching products by category: $e');
+      LoggerService().e('Error fetching products by category: $e');
       return [];
     }
   }
@@ -105,7 +106,7 @@ class SupabaseService {
 
       return ProductModel.fromJson(response);
     } catch (e) {
-      print('Error fetching product: $e');
+      LoggerService().e('Error fetching product: $e');
       return null;
     }
   }
@@ -122,7 +123,7 @@ class SupabaseService {
           .map((p) => ProductModel.fromJson(p))
           .toList();
     } catch (e) {
-      print('Error searching products: $e');
+      LoggerService().e('Error searching products: $e');
       return [];
     }
   }
@@ -137,7 +138,7 @@ class SupabaseService {
           .map((c) => CategoryModel.fromJson(c))
           .toList();
     } catch (e) {
-      print('Error fetching categories: $e');
+      LoggerService().e('Error fetching categories: $e');
       return [];
     }
   }
@@ -149,7 +150,7 @@ class SupabaseService {
 
       return CategoryModel.fromJson(response);
     } catch (e) {
-      print('Error fetching category: $e');
+      LoggerService().e('Error fetching category: $e');
       return null;
     }
   }

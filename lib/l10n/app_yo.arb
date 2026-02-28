@@ -293,5 +293,16 @@
   "dontHaveAccount": "Àkó lé àkáun?",
   "signUpButton": "Forígisá",
   "skipButton": "Fòlò",
-  "allFieldsRequired": "Báwo ni a mọ alaye gbogbo àáye"
+  "allFieldsRequired": "Báwo ni a mọ alaye gbogbo àáye",
+
+  "themeMode": "Ọna Iṣeto",
+  "themeAccent": "Orisun Ege",
+  "themeContrast": "Iyatọ",
+  "normal": "Lati",
+  "highContrast": "Iyatọ Giga",
+  "purple": "Elu",
+  "skyBlue": "Elu Ọrun",
+  "forestGreen": "Igbo Ewé",
+  "orange": "Oranji",
+  "coral": "Coral"
 }

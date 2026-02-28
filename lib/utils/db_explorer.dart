@@ -2,23 +2,24 @@
 // À exécuter une fois dans main() pour voir l'état de la DB
 
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:aivo/services/logger_service.dart';
 
 Future<void> exploreSupabase() async {
   final client = Supabase.instance.client;
 
-  print('\n\n========== 🔍 SUPABASE DATABASE INSPECTION ==========\n');
+  LoggerService().i('\n\n========== 🔍 SUPABASE DATABASE INSPECTION ==========\n');
 
   // 1. Tester la connexion
   try {
-    final connTest = await client.from('information_schema.tables').select().limit(1);
-    print('✅ Connexion à Supabase: OK\n');
+    await client.from('information_schema.tables').select().limit(1);
+    LoggerService().i('✅ Connexion à Supabase: OK\n');
   } catch (e) {
-    print('❌ Connexion: Échouée - $e\n');
+    LoggerService().i('❌ Connexion: Échouée - $e\n');
     return;
   }
 
   // 2. Chercher toutes les tables
-  print('📋 TABLES EXISTANTES:\n');
+  LoggerService().i('📋 TABLES EXISTANTES:\n');
 
   final tablesList = [
     'products',
@@ -33,32 +34,34 @@ Future<void> exploreSupabase() async {
   for (String tableName in tablesList) {
     try {
       final response = await client.from(tableName).select('*').limit(1);
-      print('✅ $tableName');
-      print('   Colonnes: ${(response.isNotEmpty ? (response[0] as Map).keys.toList() : 'VIDE').toString()}');
-      print('   Nombre de lignes: ${response.length}');
+      LoggerService().i('✅ $tableName');
+      LoggerService().i(
+          '   Colonnes: ${(response.isNotEmpty ? (response[0] as Map).keys.toList() : 'VIDE').toString()}');
+      LoggerService().i('   Nombre de lignes: ${response.length}');
       if (response.isNotEmpty) {
-        print('   Exemple: ${response[0]}');
+        LoggerService().i('   Exemple: ${response[0]}');
       }
-      print('');
+      LoggerService().i('');
     } catch (e) {
       final errorMsg = e.toString();
       if (errorMsg.contains('does not exist')) {
-        print('❌ $tableName (n\'existe pas)');
+        LoggerService().i('❌ $tableName (n\'existe pas)');
       } else {
-        print('⚠️  $tableName (erreur: ${e.toString().split('\n').first})');
+        LoggerService().i('⚠️  $tableName (erreur: ${e.toString().split('\n').first})');
       }
-      print('');
+      LoggerService().i('');
     }
   }
 
   // 3. Check Auth
-  print('\n🔐 AUTHENTIFICATION:\n');
+  LoggerService().i('\n🔐 AUTHENTIFICATION:\n');
   try {
     final user = await client.auth.getUser();
-    print('✅ Auth initialisée - User: ${user.user?.email ?? 'Aucun utilisateur connecté'}');
+    LoggerService().i(
+        '✅ Auth initialisée - User: ${user.user?.email ?? 'Aucun utilisateur connecté'}');
   } catch (e) {
-    print('⚠️  Auth check: ${e.toString().split('\n').first}');
+    LoggerService().i('⚠️  Auth check: ${e.toString().split('\n').first}');
   }
 
-  print('\n========== FIN INSPECTION ==========\n');
+  LoggerService().i('\n========== FIN INSPECTION ==========\n');
 }

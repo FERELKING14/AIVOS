@@ -293,5 +293,16 @@
   "dontHaveAccount": "Awunakho i-akhawunti?",
   "signUpButton": "Bhalisa",
   "skipButton": "Lewela",
-  "allFieldsRequired": "Sicela uzuzise lonke amasimu"
+  "allFieldsRequired": "Sicela uzuzise lonke amasimu",
+
+  "themeMode": "Isimo Sokuqala",
+  "themeAccent": "Umbala Wokuqala",
+  "themeContrast": "Ukunqoqoba",
+  "normal": "Okwesiqalo",
+  "highContrast": "Ukunqoqoba Kokuqala",
+  "purple": "Ube",
+  "skyBlue": "Isilulu Sesibhakabhaka",
+  "forestGreen": "Isilulu Sehlathi",
+  "orange": "Orange",
+  "coral": "Isiqalo"
 }

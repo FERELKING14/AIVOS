@@ -292,5 +292,16 @@
   "dontHaveAccount": " jamie ስሩ?",
   "signUpButton": "ይመዝገቡ",
   "skipButton": "ዘለል",
-  "allFieldsRequired": "ሁሉንም መስኮች ሙላት"
+  "allFieldsRequired": "ሁሉንም መስኮች ሙላት",
+
+  "themeMode": "ርዕሰ ጽሑፍ ሁኔታ",
+  "themeAccent": "ማጣጫያ ቀለም",
+  "themeContrast": "ንፅፅር",
+  "normal": "መደበኛ",
+  "highContrast": "ከፍተኛ ጽጌ",
+  "purple": "ሐምራዊ",
+  "skyBlue": "ሰማይ ሰማያዊ",
+  "forestGreen": "ጫካ አረንጓዴ",
+  "orange": "ብርቱካን",
+  "coral": "ከoral"
 }

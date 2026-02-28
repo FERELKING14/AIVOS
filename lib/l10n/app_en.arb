@@ -294,5 +294,16 @@
   "dontHaveAccount": "Don't have an account?",
   "signUpButton": "Sign up",
   "skipButton": "Skip",
-  "allFieldsRequired": "Please fill in all fields"
+  "allFieldsRequired": "Please fill in all fields",
+
+  "themeMode": "Theme Mode",
+  "themeAccent": "Accent Color",
+  "themeContrast": "Contrast",
+  "normal": "Normal",
+  "highContrast": "High Contrast",
+  "purple": "Purple",
+  "skyBlue": "Sky Blue",
+  "forestGreen": "Forest Green",
+  "orange": "Orange",
+  "coral": "Coral"
 }

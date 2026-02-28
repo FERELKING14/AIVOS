@@ -16,7 +16,7 @@ class SupabaseAuthService {
     try {
       _supabase = Supabase.instance.client;
     } catch (e) {
-      print('[ERROR] Failed to get Supabase client: $e');
+      LoggerService().e('[ERROR] Failed to get Supabase client: $e');
     }
   }
 
@@ -27,7 +27,7 @@ class SupabaseAuthService {
       _prefs = await SharedPreferences.getInstance();
       _initialized = true;
     } catch (e) {
-      print('[ERROR] Failed to init SharedPreferences: $e');
+      LoggerService().e('[ERROR] Failed to init SharedPreferences: $e');
     }
   }
 
@@ -121,7 +121,7 @@ class SupabaseAuthService {
   // Check if this is the first launch
   bool get isFirstLaunch {
     if (!_initialized) {
-      print('[WARNING] Auth service not initialized, assuming first launch');
+      LoggerService().w('[WARNING] Auth service not initialized, assuming first launch');
       return true;
     }
     final hasShown = _prefs.getBool('onboarding_shown') ?? false;
@@ -131,7 +131,7 @@ class SupabaseAuthService {
   // Mark onboarding as shown
   Future<void> markOnboardingAsShown() async {
     if (!_initialized) {
-      print('[WARNING] Auth service not initialized, cannot mark onboarding');
+      LoggerService().w('[WARNING] Auth service not initialized, cannot mark onboarding');
       return;
     }
     await _prefs.setBool('onboarding_shown', true);
@@ -140,7 +140,7 @@ class SupabaseAuthService {
   // Reset onboarding (for testing)
   Future<void> resetOnboarding() async {
     if (!_initialized) {
-      print('[WARNING] Auth service not initialized, cannot reset onboarding');
+      LoggerService().w('[WARNING] Auth service not initialized, cannot reset onboarding');
       return;
     }
     await _prefs.setBool('onboarding_shown', false);
@@ -159,7 +159,7 @@ class SupabaseAuthService {
   // Mark that user skipped auth
   Future<void> markSkippedInitialAuth() async {
     if (!_initialized) {
-      print('[WARNING] Auth service not initialized, cannot mark skip');
+      LoggerService().w('[WARNING] Auth service not initialized, cannot mark skip');
       return;
     }
     await _prefs.setBool('skipped_initial_auth', true);
@@ -168,7 +168,7 @@ class SupabaseAuthService {
   // Reset skip flag (for testing)
   Future<void> resetSkipFlag() async {
     if (!_initialized) {
-      print('[WARNING] Auth service not initialized, cannot reset skip');
+      LoggerService().w('[WARNING] Auth service not initialized, cannot reset skip');
       return;
     }
     await _prefs.setBool('skipped_initial_auth', false);

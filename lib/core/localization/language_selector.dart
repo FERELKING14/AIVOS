@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:aivo/constants.dart';
 import 'package:aivo/main.dart';
+import 'package:aivo/core/localization/localization_provider.dart';
 
 /// Language selector widget for changing app language
 ///
@@ -21,7 +22,7 @@ class LanguageSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final localization = LocalizationProviderService.instance;
+    final localization = LocalizationProvider.instance;
 
     return Dialog(
       shape: RoundedRectangleBorder(
@@ -58,13 +59,13 @@ class LanguageSelector extends StatelessWidget {
       final locale = localeData.$1;
       final name = localeData.$2;
       final isSelected =
-          localization.instance.locale.languageCode == locale.languageCode;
+          localization.locale.languageCode == locale.languageCode;
 
       return Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0),
         child: ElevatedButton.icon(
           onPressed: () {
-            localization.instance.setLocale(locale);
+            localization.setLocale(locale);
             Navigator.pop(context);
           },
           icon: isSelected
@@ -98,9 +99,9 @@ class LanguagePreferenceTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final localization = LocalizationProviderService.instance;
+    final localization = LocalizationProvider.instance;
     final currentLang = LocalizationProvider.getLocaleName(
-      localization.instance.locale,
+      localization.locale,
     );
 
     return ListTile(

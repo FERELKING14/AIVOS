@@ -293,5 +293,16 @@
   "dontHaveAccount": "Je, huna akaunti?",
   "signUpButton": "Jiandikishe",
   "skipButton": "Ruka",
-  "allFieldsRequired": "Tafadhali jaza sehemu zote"
+  "allFieldsRequired": "Tafadhali jaza sehemu zote",
+
+  "themeMode": "Njia ya Kapu",
+  "themeAccent": "Rangi ya Kiakala",
+  "themeContrast": "Tofauti",
+  "normal": "Kawaida",
+  "highContrast": "Tofauti Kubwa",
+  "purple": "Urple",
+  "skyBlue": "Samawi",
+  "forestGreen": "Kijani Cha Msitu",
+  "orange": "Chungwa",
+  "coral": "Mkate"
 }

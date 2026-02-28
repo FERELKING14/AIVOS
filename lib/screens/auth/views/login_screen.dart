@@ -146,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       padding: const EdgeInsets.all(defaultPadding / 2),
                       margin: const EdgeInsets.only(bottom: defaultPadding),
                       decoration: BoxDecoration(
-                        color: errorColor.withOpacity(0.1),
+                        color: errorColor.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(color: errorColor),
                       ),

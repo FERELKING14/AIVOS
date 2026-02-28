@@ -62,7 +62,7 @@ class _LogInFormState extends State<LogInForm> {
                           .textTheme
                           .bodyLarge!
                           .color!
-                          .withOpacity(0.3),
+                          .withValues(alpha: 0.3),
                       BlendMode.srcIn),
                 ),
               ),
@@ -87,7 +87,7 @@ class _LogInFormState extends State<LogInForm> {
                           .textTheme
                           .bodyLarge!
                           .color!
-                          .withOpacity(0.3),
+                          .withValues(alpha: 0.3),
                       BlendMode.srcIn),
                 ),
               ),
