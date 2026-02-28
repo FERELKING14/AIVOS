@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:aivo/constants.dart';
-import 'package:aivo/main.dart';
 import 'package:aivo/core/localization/localization_provider.dart';
 
 /// Language selector widget for changing app language

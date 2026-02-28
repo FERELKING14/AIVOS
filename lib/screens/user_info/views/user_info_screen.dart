@@ -91,7 +91,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                   Stack(
                     alignment: Alignment.bottomRight,
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 50,
                         child: NetworkImageWithLoader(
                           "https://i.imgur.com/IXnwbLk.png",
@@ -168,13 +168,13 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                     svgIcon: 'assets/icons/Message.svg',
                   ),
                   // Date of Birth Field
-                  InfoFieldListTile(
+                  const InfoFieldListTile(
                     label: 'Date of birth',
                     value: '10/31/1997',
                     svgIcon: 'assets/icons/Calendar.svg',
                   ),
                   // Phone Number Field
-                  InfoFieldListTile(
+                  const InfoFieldListTile(
                     label: 'Phone number',
                     value: '+1 202 555 0162',
                     svgIcon: 'assets/icons/Call.svg',

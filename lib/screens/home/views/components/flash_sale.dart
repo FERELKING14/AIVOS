@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:aivo/route/route_constants.dart';
 import 'package:aivo/services/supabase_service.dart';
+import 'package:aivo/components/skleton/product/product_card_skelton.dart';
 
 import '/components/Banner/M/banner_m_with_counter.dart';
 import '../../../../components/product/product_card.dart';
@@ -49,7 +50,17 @@ class _FlashSaleState extends State<FlashSale> {
             future: _flashSaleProducts,
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(child: CircularProgressIndicator());
+                return ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 4,
+                  itemBuilder: (context, index) => Padding(
+                    padding: EdgeInsets.only(
+                      left: defaultPadding,
+                      right: index == 3 ? defaultPadding : 0,
+                    ),
+                    child: const ProductCardSkelton(),
+                  ),
+                );
               }
               if (snapshot.hasError || !snapshot.hasData || snapshot.data!.isEmpty) {
                 return const Center(child: Text("No flash sale products"));

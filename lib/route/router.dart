@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:aivo/entry_point.dart';
-import 'package:aivo/services/supabase_auth_service.dart';
 
 import 'screen_export.dart';
 

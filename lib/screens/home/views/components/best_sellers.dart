@@ -3,6 +3,7 @@ import 'package:aivo/components/product/product_card.dart';
 import 'package:aivo/models/product_model.dart';
 import 'package:aivo/services/supabase_service.dart';
 
+import 'package:aivo/components/skleton/product/product_card_skelton.dart';
 import '../../../../constants.dart';
 import '../../../../route/route_constants.dart';
 
@@ -43,7 +44,17 @@ class _BestSellersState extends State<BestSellers> {
             future: _bestSellersProducts,
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(child: CircularProgressIndicator());
+                return ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 4,
+                  itemBuilder: (context, index) => Padding(
+                    padding: EdgeInsets.only(
+                      left: defaultPadding,
+                      right: index == 3 ? defaultPadding : 0,
+                    ),
+                    child: const ProductCardSkelton(),
+                  ),
+                );
               }
               if (snapshot.hasError || !snapshot.hasData || snapshot.data!.isEmpty) {
                 return const Center(child: Text("No best sellers available"));

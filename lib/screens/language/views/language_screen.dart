@@ -87,7 +87,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                       style: TextStyle(
                         fontWeight:
                             isSelected ? FontWeight.bold : FontWeight.normal,
-                        color: isSelected ? primaryColor : Colors.black87,
+                        color: isSelected ? primaryColor : Theme.of(context).textTheme.bodyLarge?.color,
                       ),
                     ),
                     trailing: isSelected
