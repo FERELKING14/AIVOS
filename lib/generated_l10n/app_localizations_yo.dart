@@ -790,4 +790,34 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get allFieldsRequired => 'Báwo ni a mọ alaye gbogbo àáye';
+
+  @override
+  String get themeMode => 'Ọna Iṣeto';
+
+  @override
+  String get themeAccent => 'Orisun Ege';
+
+  @override
+  String get themeContrast => 'Iyatọ';
+
+  @override
+  String get normal => 'Lati';
+
+  @override
+  String get highContrast => 'Iyatọ Giga';
+
+  @override
+  String get purple => 'Elu';
+
+  @override
+  String get skyBlue => 'Elu Ọrun';
+
+  @override
+  String get forestGreen => 'Igbo Ewé';
+
+  @override
+  String get orange => 'Oranji';
+
+  @override
+  String get coral => 'Coral';
 }

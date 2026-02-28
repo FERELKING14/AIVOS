@@ -1641,6 +1641,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please fill in all fields'**
   String get allFieldsRequired;
+
+  /// No description provided for @themeMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme Mode'**
+  String get themeMode;
+
+  /// No description provided for @themeAccent.
+  ///
+  /// In en, this message translates to:
+  /// **'Accent Color'**
+  String get themeAccent;
+
+  /// No description provided for @themeContrast.
+  ///
+  /// In en, this message translates to:
+  /// **'Contrast'**
+  String get themeContrast;
+
+  /// No description provided for @normal.
+  ///
+  /// In en, this message translates to:
+  /// **'Normal'**
+  String get normal;
+
+  /// No description provided for @highContrast.
+  ///
+  /// In en, this message translates to:
+  /// **'High Contrast'**
+  String get highContrast;
+
+  /// No description provided for @purple.
+  ///
+  /// In en, this message translates to:
+  /// **'Purple'**
+  String get purple;
+
+  /// No description provided for @skyBlue.
+  ///
+  /// In en, this message translates to:
+  /// **'Sky Blue'**
+  String get skyBlue;
+
+  /// No description provided for @forestGreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Forest Green'**
+  String get forestGreen;
+
+  /// No description provided for @orange.
+  ///
+  /// In en, this message translates to:
+  /// **'Orange'**
+  String get orange;
+
+  /// No description provided for @coral.
+  ///
+  /// In en, this message translates to:
+  /// **'Coral'**
+  String get coral;
 }
 
 class _AppLocalizationsDelegate

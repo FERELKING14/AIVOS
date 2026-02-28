@@ -794,4 +794,34 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get allFieldsRequired => 'Tafadhali jaza sehemu zote';
+
+  @override
+  String get themeMode => 'Njia ya Kapu';
+
+  @override
+  String get themeAccent => 'Rangi ya Kiakala';
+
+  @override
+  String get themeContrast => 'Tofauti';
+
+  @override
+  String get normal => 'Kawaida';
+
+  @override
+  String get highContrast => 'Tofauti Kubwa';
+
+  @override
+  String get purple => 'Urple';
+
+  @override
+  String get skyBlue => 'Samawi';
+
+  @override
+  String get forestGreen => 'Kijani Cha Msitu';
+
+  @override
+  String get orange => 'Chungwa';
+
+  @override
+  String get coral => 'Mkate';
 }

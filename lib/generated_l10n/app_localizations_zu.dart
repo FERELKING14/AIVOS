@@ -795,4 +795,34 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get allFieldsRequired => 'Sicela uzuzise lonke amasimu';
+
+  @override
+  String get themeMode => 'Isimo Sokuqala';
+
+  @override
+  String get themeAccent => 'Umbala Wokuqala';
+
+  @override
+  String get themeContrast => 'Ukunqoqoba';
+
+  @override
+  String get normal => 'Okwesiqalo';
+
+  @override
+  String get highContrast => 'Ukunqoqoba Kokuqala';
+
+  @override
+  String get purple => 'Ube';
+
+  @override
+  String get skyBlue => 'Isilulu Sesibhakabhaka';
+
+  @override
+  String get forestGreen => 'Isilulu Sehlathi';
+
+  @override
+  String get orange => 'Orange';
+
+  @override
+  String get coral => 'Isiqalo';
 }

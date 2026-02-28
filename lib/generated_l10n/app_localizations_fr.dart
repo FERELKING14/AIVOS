@@ -796,4 +796,34 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get allFieldsRequired => 'Veuillez remplir tous les champs';
+
+  @override
+  String get themeMode => 'Mode Thème';
+
+  @override
+  String get themeAccent => 'Couleur d\'Accent';
+
+  @override
+  String get themeContrast => 'Contraste';
+
+  @override
+  String get normal => 'Normal';
+
+  @override
+  String get highContrast => 'Haut Contraste';
+
+  @override
+  String get purple => 'Violet';
+
+  @override
+  String get skyBlue => 'Bleu Ciel';
+
+  @override
+  String get forestGreen => 'Vert Forêt';
+
+  @override
+  String get orange => 'Orange';
+
+  @override
+  String get coral => 'Corail';
 }

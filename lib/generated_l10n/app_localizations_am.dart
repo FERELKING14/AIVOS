@@ -788,4 +788,34 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get allFieldsRequired => 'ሁሉንም መስኮች ሙላት';
+
+  @override
+  String get themeMode => 'ርዕሰ ጽሑፍ ሁኔታ';
+
+  @override
+  String get themeAccent => 'ማጣጫያ ቀለም';
+
+  @override
+  String get themeContrast => 'ንፅፅር';
+
+  @override
+  String get normal => 'መደበኛ';
+
+  @override
+  String get highContrast => 'ከፍተኛ ጽጌ';
+
+  @override
+  String get purple => 'ሐምራዊ';
+
+  @override
+  String get skyBlue => 'ሰማይ ሰማያዊ';
+
+  @override
+  String get forestGreen => 'ጫካ አረንጓዴ';
+
+  @override
+  String get orange => 'ብርቱካን';
+
+  @override
+  String get coral => 'ከoral';
 }

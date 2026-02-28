@@ -84,6 +84,8 @@ class ProductModel {
       updatedAt: json['updated_at'] != null
           ? DateTime.parse(json['updated_at'] as String)
           : null,
+      priceAfetDiscount: (json['price_afet_discount'] as num?)?.toDouble(),
+      dicountpercent: json['dicountpercent'] as int?,
     );
   }
 

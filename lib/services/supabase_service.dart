@@ -25,12 +25,15 @@ class SupabaseService {
           .contains('tags', '["popular"]')
           .limit(10);
 
-      return (response as List)
+      final products = (response as List)
           .map((p) => ProductModel.fromJson(p))
           .toList();
+
+      // Fallback to demo data if empty
+      return products.isNotEmpty ? products : demoPopularProducts;
     } catch (e) {
       LoggerService().e('Error fetching popular products: $e');
-      return [];
+      return demoPopularProducts;
     }
   }
 
@@ -42,12 +45,14 @@ class SupabaseService {
           .contains('tags', '["flash_sale"]')
           .limit(10);
 
-      return (response as List)
+      final products = (response as List)
           .map((p) => ProductModel.fromJson(p))
           .toList();
+
+      return products.isNotEmpty ? products : demoFlashSaleProducts;
     } catch (e) {
       LoggerService().e('Error fetching flash sale products: $e');
-      return [];
+      return demoFlashSaleProducts;
     }
   }
 
@@ -59,12 +64,14 @@ class SupabaseService {
           .contains('tags', '["bestseller"]')
           .limit(10);
 
-      return (response as List)
+      final products = (response as List)
           .map((p) => ProductModel.fromJson(p))
           .toList();
+
+      return products.isNotEmpty ? products : demoBestSellersProducts;
     } catch (e) {
       LoggerService().e('Error fetching best sellers: $e');
-      return [];
+      return demoBestSellersProducts;
     }
   }
 
@@ -76,12 +83,14 @@ class SupabaseService {
           .contains('tags', '["kids"]')
           .limit(10);
 
-      return (response as List)
+      final products = (response as List)
           .map((p) => ProductModel.fromJson(p))
           .toList();
+
+      return products.isNotEmpty ? products : kidsProducts;
     } catch (e) {
       LoggerService().e('Error fetching kids products: $e');
-      return [];
+      return kidsProducts;
     }
   }
 
