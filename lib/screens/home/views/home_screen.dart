@@ -9,6 +9,9 @@ import 'components/flash_sale.dart';
 import 'components/most_popular.dart';
 import 'components/offer_carousel_and_categories.dart';
 import 'components/popular_products.dart';
+import 'components/categories_section.dart';
+import 'components/top_vendors.dart';
+import 'components/trending_products.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -19,17 +22,33 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
+            // 1. HERO BANNER & SEARCH
             const SliverToBoxAdapter(child: OffersCarouselAndCategories()),
+
+            // 2. CATEGORIES WITH IMAGES
+            const SliverToBoxAdapter(
+              child: CategoriesSection(),
+            ),
+
+            // 3. POPULAR PRODUCTS
             const SliverToBoxAdapter(child: PopularProducts()),
+
+            // 4. FLASH SALE / TIME-LIMITED OFFERS
             const SliverPadding(
               padding: EdgeInsets.symmetric(vertical: defaultPadding * 1.5),
               sliver: SliverToBoxAdapter(child: FlashSale()),
             ),
+
+            // 5. TOP VENDORS/STORES
+            const SliverToBoxAdapter(
+              child: TopVendors(),
+            ),
+
+            // 6. NEW ARRIVAL BANNER
             SliverToBoxAdapter(
               child: Column(
                 children: [
-                  // While loading use 👇
-                  // const BannerMSkelton(),‚
+                  const SizedBox(height: defaultPadding / 2),
                   BannerSStyle1(
                     title: "New \narrival",
                     subtitle: "SPECIAL OFFER",
@@ -38,21 +57,30 @@ class HomeScreen extends StatelessWidget {
                       Navigator.pushNamed(context, onSaleScreenRoute);
                     },
                   ),
-                  const SizedBox(height: defaultPadding / 4),
-                  // We have 4 banner styles, all in the pro version
+                  const SizedBox(height: defaultPadding / 2),
                 ],
               ),
             ),
+
+            // 7. BEST SELLERS
             const SliverToBoxAdapter(child: BestSellers()),
+
+            // 8. FEATURED CREATORS/INDIVIDUALS
+            const SliverToBoxAdapter(
+              child: FeaturedCreators(),
+            ),
+
+            // 9. TRENDING PRODUCTS
+            const SliverToBoxAdapter(child: TrendingProducts()),
+
+            // 10. MOST POPULAR
             const SliverToBoxAdapter(child: MostPopular()),
+
+            // 11. BLACK FRIDAY BANNER / SEASONAL
             SliverToBoxAdapter(
               child: Column(
                 children: [
                   const SizedBox(height: defaultPadding * 1.5),
-
-                  const SizedBox(height: defaultPadding / 4),
-                  // While loading use 👇
-                  // const BannerSSkelton(),
                   BannerSStyle5(
                     title: "Black \nfriday",
                     subtitle: "50% Off",
@@ -61,10 +89,12 @@ class HomeScreen extends StatelessWidget {
                       Navigator.pushNamed(context, onSaleScreenRoute);
                     },
                   ),
-                  const SizedBox(height: defaultPadding / 4),
+                  const SizedBox(height: defaultPadding),
                 ],
               ),
             ),
+
+            // 12. MORE BEST SELLERS / RELATED
             const SliverToBoxAdapter(child: BestSellers()),
           ],
         ),

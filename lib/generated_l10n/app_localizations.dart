@@ -1642,6 +1642,66 @@ abstract class AppLocalizations {
   /// **'Please fill in all fields'**
   String get allFieldsRequired;
 
+  /// No description provided for @onboardingStep1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Find the item you\'ve\nbeen looking for'**
+  String get onboardingStep1Title;
+
+  /// No description provided for @onboardingStep1Description.
+  ///
+  /// In en, this message translates to:
+  /// **'Here you\'ll see rich varieties of goods, carefully classified for seamless browsing experience.'**
+  String get onboardingStep1Description;
+
+  /// No description provided for @onboardingStep2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Get those shopping\nbags filled'**
+  String get onboardingStep2Title;
+
+  /// No description provided for @onboardingStep2Description.
+  ///
+  /// In en, this message translates to:
+  /// **'Add any item you want to your cart, or save it on your wishlist, so you don\'t miss it in your future purchases.'**
+  String get onboardingStep2Description;
+
+  /// No description provided for @onboardingStep3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Fast & secure\npayment'**
+  String get onboardingStep3Title;
+
+  /// No description provided for @onboardingStep3Description.
+  ///
+  /// In en, this message translates to:
+  /// **'There are many payment options available for your ease.'**
+  String get onboardingStep3Description;
+
+  /// No description provided for @onboardingStep4Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Package tracking'**
+  String get onboardingStep4Title;
+
+  /// No description provided for @onboardingStep4Description.
+  ///
+  /// In en, this message translates to:
+  /// **'In particular, AIVO can pack your orders, and help you seamlessly manage your shipments.'**
+  String get onboardingStep4Description;
+
+  /// No description provided for @onboardingStep5Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Nearby stores'**
+  String get onboardingStep5Title;
+
+  /// No description provided for @onboardingStep5Description.
+  ///
+  /// In en, this message translates to:
+  /// **'Easily track nearby shops, browse through their items and get information about their prodcuts.'**
+  String get onboardingStep5Description;
+
   /// No description provided for @themeMode.
   ///
   /// In en, this message translates to:

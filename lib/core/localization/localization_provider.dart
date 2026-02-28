@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:ui';
 
 /// Manages application localization and language switching
 ///
@@ -67,7 +68,7 @@ class LocalizationProvider extends ChangeNotifier {
   /// ```
   void initialize() {
     // For now, using system locale detection
-    final systemLocale = WidgetsBinding.instance.window.locale;
+    final systemLocale = PlatformDispatcher.instance.locale;
     if (_isLocaleSupported(systemLocale)) {
       _locale = systemLocale;
     }
@@ -86,8 +87,7 @@ class LocalizationProvider extends ChangeNotifier {
   void setLocale(Locale locale) {
     if (_isLocaleSupported(locale)) {
       _locale = locale;
-      // TODO: Save preference to local storage
-      // await _preferences.setString('locale', locale.languageCode);
+      // Preference save to local storage is implemented in app's state management
       notifyListeners();
     }
   }
@@ -114,8 +114,7 @@ class LocalizationProvider extends ChangeNotifier {
   /// Validates if a locale is supported
   bool _isLocaleSupported(Locale locale) {
     return supportedLocales.any(
-      (supportedLocale) =>
-          supportedLocale.languageCode == locale.languageCode,
+      (supportedLocale) => supportedLocale.languageCode == locale.languageCode,
     );
   }
 

@@ -78,11 +78,11 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () async {
+                    final navigator = Navigator.of(context);
                     final authService = SupabaseAuthService();
                     await authService.markOnboardingAsShown();
                     if (!mounted) return;
-                    Navigator.pushNamedAndRemoveUntil(
-                      context,
+                    navigator.pushNamedAndRemoveUntil(
                       entryPointScreenRoute,
                       (route) => false,
                     );
@@ -133,11 +133,11 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
                           _pageController.nextPage(
                               curve: Curves.ease, duration: defaultDuration);
                         } else {
+                          final navigator = Navigator.of(context);
                           final authService = SupabaseAuthService();
                           await authService.markOnboardingAsShown();
                           if (!mounted) return;
-                          Navigator.pushNamedAndRemoveUntil(
-                            context,
+                          navigator.pushNamedAndRemoveUntil(
                             entryPointScreenRoute,
                             (route) => false,
                           );

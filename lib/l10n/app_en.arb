@@ -296,6 +296,17 @@
   "skipButton": "Skip",
   "allFieldsRequired": "Please fill in all fields",
 
+  "onboardingStep1Title": "Find the item you've\nbeen looking for",
+  "onboardingStep1Description": "Here you'll see rich varieties of goods, carefully classified for seamless browsing experience.",
+  "onboardingStep2Title": "Get those shopping\nbags filled",
+  "onboardingStep2Description": "Add any item you want to your cart, or save it on your wishlist, so you don't miss it in your future purchases.",
+  "onboardingStep3Title": "Fast & secure\npayment",
+  "onboardingStep3Description": "There are many payment options available for your ease.",
+  "onboardingStep4Title": "Package tracking",
+  "onboardingStep4Description": "In particular, AIVO can pack your orders, and help you seamlessly manage your shipments.",
+  "onboardingStep5Title": "Nearby stores",
+  "onboardingStep5Description": "Easily track nearby shops, browse through their items and get information about their prodcuts.",
+
   "themeMode": "Theme Mode",
   "themeAccent": "Accent Color",
   "themeContrast": "Contrast",
@@ -305,5 +316,19 @@
   "skyBlue": "Sky Blue",
   "forestGreen": "Forest Green",
   "orange": "Orange",
-  "coral": "Coral"
+  "coral": "Coral",
+
+  "topStores": "Top Stores",
+  "featuredCreators": "Featured Creators",
+  "trendingNow": "Trending Now",
+  "viewAll": "View All",
+  "following": "Following",
+  "follow": "Follow",
+  "professional": "Professional",
+  "creator": "Creator",
+  "verified": "Verified",
+  "noVendorsAvailable": "No vendors available",
+  "noCreatorsAvailable": "No creators available",
+  "newArrival": "New Arrival",
+  "specialOffer": "Special Offer"
 }

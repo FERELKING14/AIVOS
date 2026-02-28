@@ -798,6 +798,41 @@ class AppLocalizationsFr extends AppLocalizations {
   String get allFieldsRequired => 'Veuillez remplir tous les champs';
 
   @override
+  String get onboardingStep1Title => 'Find the item you\'ve\nbeen looking for';
+
+  @override
+  String get onboardingStep1Description =>
+      'Here you\'ll see rich varieties of goods, carefully classified for seamless browsing experience.';
+
+  @override
+  String get onboardingStep2Title => 'Get those shopping\nbags filled';
+
+  @override
+  String get onboardingStep2Description =>
+      'Add any item you want to your cart, or save it on your wishlist, so you don\'t miss it in your future purchases.';
+
+  @override
+  String get onboardingStep3Title => 'Fast & secure\npayment';
+
+  @override
+  String get onboardingStep3Description =>
+      'There are many payment options available for your ease.';
+
+  @override
+  String get onboardingStep4Title => 'Package tracking';
+
+  @override
+  String get onboardingStep4Description =>
+      'In particular, AIVO can pack your orders, and help you seamlessly manage your shipments.';
+
+  @override
+  String get onboardingStep5Title => 'Nearby stores';
+
+  @override
+  String get onboardingStep5Description =>
+      'Easily track nearby shops, browse through their items and get information about their prodcuts.';
+
+  @override
   String get themeMode => 'Mode Thème';
 
   @override

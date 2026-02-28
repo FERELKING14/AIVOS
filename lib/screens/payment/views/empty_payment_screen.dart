@@ -36,7 +36,8 @@ class EmptyPaymentScreen extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                // TODO: Navigate to add payment method screen
+                // Navigate to add payment method screen
+                Navigator.pushNamed(context, 'add_payment_method');
               },
               child: const Text("Add Payment Method"),
             ),

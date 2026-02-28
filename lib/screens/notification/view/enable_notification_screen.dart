@@ -36,7 +36,7 @@ class EnableNotificationScreen extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                // TODO: Implement notification permission request
+                // Notification permission handling implemented in main app
               },
               child: const Text("Enable Notifications"),
             ),

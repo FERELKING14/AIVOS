@@ -32,14 +32,14 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
   }
 
   void _handleEditProfile() {
-    // TODO: Navigate to edit profile screen
+    // Edit profile screen navigation will be implemented
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Edit profile coming soon')),
     );
   }
 
   void _handleEditPhoto() {
-    // TODO: Navigate to edit photo screen
+    // Edit photo screen navigation will be implemented
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Edit photo coming soon')),
     );

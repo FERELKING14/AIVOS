@@ -31,7 +31,6 @@ class _ThemeScreenState extends State<ThemeScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
       appBar: AppBar(title: Text(l10n.theme)),
@@ -177,29 +176,29 @@ class _ThemeModeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Expanded(
-    child: GestureDetector(
-      onTap: onTap,
-      child: Container(
-        alignment: Alignment.center,
-        padding: const EdgeInsets.symmetric(vertical: 12),
-        decoration: BoxDecoration(
-          color: selected ? primaryColor.withValues(alpha: 0.15) : null,
-          border: selected
-              ? Border(
-                  bottom: BorderSide(color: primaryColor, width: 2),
-                )
-              : null,
-        ),
-        child: Text(
-          label,
-          style: TextStyle(
-            fontWeight: selected ? FontWeight.bold : FontWeight.normal,
-            color: selected ? primaryColor : null,
+        child: GestureDetector(
+          onTap: onTap,
+          child: Container(
+            alignment: Alignment.center,
+            padding: const EdgeInsets.symmetric(vertical: 12),
+            decoration: BoxDecoration(
+              color: selected ? primaryColor.withValues(alpha: 0.15) : null,
+              border: selected
+                  ? const Border(
+                      bottom: BorderSide(color: primaryColor, width: 2),
+                    )
+                  : null,
+            ),
+            child: Text(
+              label,
+              style: TextStyle(
+                fontWeight: selected ? FontWeight.bold : FontWeight.normal,
+                color: selected ? primaryColor : null,
+              ),
+            ),
           ),
         ),
-      ),
-    ),
-  );
+      );
 }
 
 class _ThemePreviewCard extends StatelessWidget {
@@ -217,91 +216,91 @@ class _ThemePreviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => GestureDetector(
-    onTap: onTap,
-    child: Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: selected ? accent : Colors.grey.withValues(alpha: 0.3),
-          width: selected ? 2 : 1,
+        onTap: onTap,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              color: selected ? accent : Colors.grey.withValues(alpha: 0.3),
+              width: selected ? 2 : 1,
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Theme preview representation
+              Container(
+                width: 60,
+                height: 60,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.grey[800]
+                      : Colors.grey[200],
+                ),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    // Preview elements
+                    Positioned(
+                      top: 6,
+                      left: 6,
+                      right: 6,
+                      child: Container(
+                        height: 8,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                          color: accent,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 6,
+                      left: 6,
+                      child: Container(
+                        width: 12,
+                        height: 12,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: accent,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 6,
+                      right: 6,
+                      child: Container(
+                        width: 12,
+                        height: 12,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: accent.withValues(alpha: 0.5),
+                        ),
+                      ),
+                    ),
+                    if (selected)
+                      Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(color: accent, width: 2),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                name,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: selected ? FontWeight.bold : FontWeight.normal,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
         ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // Theme preview representation
-          Container(
-            width: 60,
-            height: 60,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: Theme.of(context).brightness == Brightness.dark
-                  ? Colors.grey[800]
-                  : Colors.grey[200],
-            ),
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                // Preview elements
-                Positioned(
-                  top: 6,
-                  left: 6,
-                  right: 6,
-                  child: Container(
-                    height: 8,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4),
-                      color: accent,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 6,
-                  left: 6,
-                  child: Container(
-                    width: 12,
-                    height: 12,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: accent,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 6,
-                  right: 6,
-                  child: Container(
-                    width: 12,
-                    height: 12,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: accent.withValues(alpha: 0.5),
-                    ),
-                  ),
-                ),
-                if (selected)
-                  Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(color: accent, width: 2),
-                    ),
-                  ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            name,
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: selected ? FontWeight.bold : FontWeight.normal,
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
-    ),
-  );
+      );
 }
 
 class _ColorButton extends StatelessWidget {
@@ -315,18 +314,18 @@ class _ColorButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => GestureDetector(
-    onTap: onTap,
-    child: Container(
-      width: 50,
-      height: 50,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(
-          color: Colors.grey.withValues(alpha: 0.3),
-          width: 1,
+        onTap: onTap,
+        child: Container(
+          width: 50,
+          height: 50,
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(
+              color: Colors.grey.withValues(alpha: 0.3),
+              width: 1,
+            ),
+          ),
         ),
-      ),
-    ),
-  );
+      );
 }
