@@ -4,6 +4,7 @@ import 'package:aivo/components/dot_indicators.dart';
 import 'package:aivo/constants.dart';
 import 'package:aivo/route/route_constants.dart';
 import 'package:aivo/services/supabase_auth_service.dart';
+import 'package:aivo/generated_l10n/app_localizations.dart';
 
 import 'components/onbording_content.dart';
 
@@ -56,8 +57,50 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
 
   @override
   void initState() {
-    _pageController = PageController(initialPage: 0);
     super.initState();
+    _pageController = PageController(initialPage: 0);
+    // Initialize onboarding data after first frame to access context
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _initializeOnboardingData();
+    });
+  }
+
+  void _initializeOnboardingData() {
+    final l10n = AppLocalizations.of(context)!;
+    setState(() {
+      _onbordData = [
+        Onbord(
+          image: "assets/Illustration/Illustration-0.png",
+          imageDarkTheme: "assets/Illustration/Illustration_darkTheme_0.png",
+          title: l10n.onboardingStep1Title,
+          description: l10n.onboardingStep1Description,
+        ),
+        Onbord(
+          image: "assets/Illustration/Illustration-1.png",
+          imageDarkTheme: "assets/Illustration/Illustration_darkTheme_1.png",
+          title: l10n.onboardingStep2Title,
+          description: l10n.onboardingStep2Description,
+        ),
+        Onbord(
+          image: "assets/Illustration/Illustration-2.png",
+          imageDarkTheme: "assets/Illustration/Illustration_darkTheme_2.png",
+          title: l10n.onboardingStep3Title,
+          description: l10n.onboardingStep3Description,
+        ),
+        Onbord(
+          image: "assets/Illustration/Illustration-3.png",
+          imageDarkTheme: "assets/Illustration/Illustration_darkTheme_3.png",
+          title: l10n.onboardingStep4Title,
+          description: l10n.onboardingStep4Description,
+        ),
+        Onbord(
+          image: "assets/Illustration/Illustration-4.png",
+          imageDarkTheme: "assets/Illustration/Illustration_darkTheme_4.png",
+          title: l10n.onboardingStep5Title,
+          description: l10n.onboardingStep5Description,
+        ),
+      ];
+    });
   }
 
   @override
@@ -68,6 +111,8 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -88,7 +133,7 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
                     );
                   },
                   child: Text(
-                    "Skip",
+                    l10n.skipButton,
                     style: TextStyle(
                         color: Theme.of(context).textTheme.bodyLarge!.color),
                   ),

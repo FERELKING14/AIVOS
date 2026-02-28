@@ -28,6 +28,9 @@ dependencies:
   # Supabase
   supabase_flutter: ^2.5.0
   shared_preferences: ^2.2.2
+  
+  # Phone number international
+  intl_phone_number_input: ^0.7.2
 
   # Logging
   path_provider: ^2.1.3

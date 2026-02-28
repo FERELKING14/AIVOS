@@ -296,6 +296,10 @@
   "skipButton": "Skip",
   "allFieldsRequired": "Please fill in all fields",
 
+  "emailOrPhonePlaceholder": "Email address or phone number",
+  "emailOrPhoneRequired": "Please enter your email or phone number",
+  "enterValidEmailOrPhone": "Please enter a valid email address or phone number",
+
   "onboardingStep1Title": "Find the item you've\nbeen looking for",
   "onboardingStep1Description": "Here you'll see rich varieties of goods, carefully classified for seamless browsing experience.",
   "onboardingStep2Title": "Get those shopping\nbags filled",

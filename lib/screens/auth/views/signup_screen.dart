@@ -53,9 +53,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
     final state = _formWidgetKey.currentState as dynamic;
     final email = state?.email ?? '';
     final password = state?.password ?? '';
+    final firstName = state?.firstName ?? '';
+    final lastName = state?.lastName ?? '';
+    final phoneNumber = state?.phoneNumber ?? '';
+    final countryCode = state?.countryCode ?? '';
+    final countryName = state?.countryName ?? '';
+    final userType = state?.userType ?? 'buyer';
 
     if (email.isEmpty || password.isEmpty) {
-      _showErrorSnackBar('Please fill in all fields');
+      _showErrorSnackBar('Please fill in all required fields (Email and Password)');
+      return;
+    }
+
+    if (userType.isEmpty) {
+      _showErrorSnackBar('Please select whether you are a Buyer or Seller');
       return;
     }
 
@@ -66,7 +77,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
     try {
       final authService = SupabaseAuthService();
-      await authService.signUp(email: email, password: password);
+      final authResponse = await authService.signUp(email: email, password: password);
+
+      // Create user profile with additional information
+      if (authResponse.user != null) {
+        await authService.createUserProfile(
+          userId: authResponse.user!.id,
+          firstName: firstName.isNotEmpty ? firstName : null,
+          lastName: lastName.isNotEmpty ? lastName : null,
+          phoneNumber: phoneNumber.isNotEmpty ? phoneNumber : null,
+          countryCode: countryCode.isNotEmpty ? countryCode : null,
+          countryName: countryName.isNotEmpty ? countryName : null,
+          userType: userType,
+        );
+      }
 
       _showSuccessSnackBar('Account created successfully!');
 

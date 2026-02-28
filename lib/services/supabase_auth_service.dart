@@ -42,7 +42,7 @@ class SupabaseAuthService {
   // Get user email
   String? get userEmail => _supabase.auth.currentUser?.email;
 
-  // LOGIN
+  // LOGIN with email or phone
   Future<AuthResponse> login({
     required String email,
     required String password,
@@ -50,16 +50,62 @@ class SupabaseAuthService {
     try {
       final logger = LoggerService();
       logger.i('🔐 Attempting login for: $email');
-      final response = await _supabase.auth.signInWithPassword(
-        email: email,
-        password: password,
-      );
-      logger.i('✅ Login successful for: $email');
-      return response;
+      
+      // Try to login with email directly
+      try {
+        final response = await _supabase.auth.signInWithPassword(
+          email: email,
+          password: password,
+        );
+        logger.i('✅ Login successful for: $email');
+        return response;
+      } catch (e) {
+        // If email login fails and input might be a phone, try to find user by phone
+        if (!email.contains('@')) {
+          logger.i('📱 Trying to login with phone number: $email');
+          try {
+            final result = await _supabase
+                .from('user_profiles')
+                .select('user_id')
+                .eq('phone_number', email)
+                .single();
+            
+            if (result != null && result['user_id'] != null) {
+              // Get user email from auth table
+              final userEmail = await _getUserEmailById(result['user_id']);
+              if (userEmail != null) {
+                final response = await _supabase.auth.signInWithPassword(
+                  email: userEmail,
+                  password: password,
+                );
+                logger.i('✅ Login successful with phone number');
+                return response;
+              }
+            }
+          } catch (phoneError) {
+            logger.e('Phone lookup failed: $phoneError');
+          }
+        }
+        rethrow;
+      }
     } catch (e) {
       final logger = LoggerService();
       logger.e('❌ Login failed: $e', e);
       rethrow;
+    }
+  }
+
+  // Helper method to get user email by ID
+  Future<String?> _getUserEmailById(String userId) async {
+    try {
+      final result = await _supabase
+          .from('user_profiles')
+          .select('email')
+          .eq('user_id', userId)
+          .single();
+      return result['email'];
+    } catch (e) {
+      return null;
     }
   }
 
@@ -80,6 +126,39 @@ class SupabaseAuthService {
     } catch (e) {
       final logger = LoggerService();
       logger.e('❌ Signup failed: $e', e);
+      rethrow;
+    }
+  }
+
+  // CREATE USER PROFILE with additional information
+  Future<void> createUserProfile({
+    required String userId,
+    String? firstName,
+    String? lastName,
+    String? phoneNumber,
+    String? countryCode,
+    String? countryName,
+    String userType = 'buyer',
+  }) async {
+    try {
+      final logger = LoggerService();
+      logger.i('💾 Creating user profile for: $userId');
+      
+      await _supabase.from('user_profiles').upsert({
+        'user_id': userId,
+        'first_name': firstName,
+        'last_name': lastName,
+        'phone_number': phoneNumber,
+        'country_code': countryCode,
+        'country': countryName,
+        'user_type': userType,
+        'updated_at': DateTime.now().toIso8601String(),
+      });
+      
+      logger.i('✅ User profile created successfully');
+    } catch (e) {
+      final logger = LoggerService();
+      logger.e('❌ Failed to create user profile: $e', e);
       rethrow;
     }
   }

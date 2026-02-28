@@ -176,17 +176,20 @@ class _LoginScreenState extends State<LoginScreen> {
                         ? size.height * 0.1
                         : defaultPadding,
                   ),
-                  ElevatedButton(
-                    onPressed: _isLoading ? null : _handleLogin,
-                    child: _isLoading
-                        ? const SizedBox(
-                            height: 20,
-                            width: 20,
-                            child: CircularProgressIndicator(
-                              strokeWidth: 2,
-                            ),
-                          )
-                        : Text(AppLocalizations.of(context)!.logInTitle),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: _isLoading ? null : _handleLogin,
+                      child: _isLoading
+                          ? const SizedBox(
+                              height: 20,
+                              width: 20,
+                              child: CircularProgressIndicator(
+                                strokeWidth: 2,
+                              ),
+                            )
+                          : Text(AppLocalizations.of(context)!.logInTitle),
+                    ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
